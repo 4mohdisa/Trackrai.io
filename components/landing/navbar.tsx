@@ -21,8 +21,18 @@ export function LandingNavbar() {
             </span>
           </Link>
 
-          {/* Desktop Navigation — intentionally minimal */}
-          <div className="hidden lg:flex lg:items-center lg:space-x-1" />
+          {/* Desktop Navigation */}
+          <div className="hidden lg:flex lg:items-center lg:space-x-1">
+            <Link href="/#features" className="text-sm text-gray-600 hover:text-gray-900 px-3 py-2 rounded-md hover:bg-gray-50 transition-colors">
+              Features
+            </Link>
+            <Link href="/blog" className="text-sm text-gray-600 hover:text-gray-900 px-3 py-2 rounded-md hover:bg-gray-50 transition-colors">
+              Blog
+            </Link>
+            <Link href="/help" className="text-sm text-gray-600 hover:text-gray-900 px-3 py-2 rounded-md hover:bg-gray-50 transition-colors">
+              Help
+            </Link>
+          </div>
 
           {/* Desktop CTA */}
           <div className="hidden lg:flex lg:items-center lg:space-x-3">
@@ -58,6 +68,17 @@ export function LandingNavbar() {
       {mobileMenuOpen && (
         <div className="lg:hidden border-t border-gray-200 bg-white">
           <div className="space-y-1 px-4 pb-4 pt-2">
+            <div className="flex flex-col space-y-1 mb-3">
+              <Link href="/#features" onClick={() => setMobileMenuOpen(false)} className="px-3 py-2 text-sm text-gray-600 hover:text-gray-900 rounded-md hover:bg-gray-50">
+                Features
+              </Link>
+              <Link href="/blog" onClick={() => setMobileMenuOpen(false)} className="px-3 py-2 text-sm text-gray-600 hover:text-gray-900 rounded-md hover:bg-gray-50">
+                Blog
+              </Link>
+              <Link href="/help" onClick={() => setMobileMenuOpen(false)} className="px-3 py-2 text-sm text-gray-600 hover:text-gray-900 rounded-md hover:bg-gray-50">
+                Help
+              </Link>
+            </div>
             <div className="flex flex-col space-y-2">
               <a href={SIGN_IN_URL} onClick={() => { setMobileMenuOpen(false); trackSigninClick('navbar_mobile') }}>
                 <Button variant="outline" className="w-full text-[15px]">

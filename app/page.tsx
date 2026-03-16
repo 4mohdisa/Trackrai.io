@@ -5,6 +5,8 @@ import { Card } from '@/components/ui/card'
 import { testimonials } from '@/constants/testimonials'
 import { SITE_URL, SITE_NAME } from '@/constants/site'
 import { SignupCTA } from '@/components/landing/signup-cta'
+import { AppStoreBadges } from '@/components/landing/app-store-badges'
+import { ScrollTracker } from '@/components/landing/scroll-tracker'
 import {
   BarChart3,
   TrendingUp,
@@ -20,6 +22,9 @@ import {
   CheckCircle2,
   Store,
   FileBarChart2,
+  Smartphone,
+  RefreshCw,
+  ArrowRightLeft,
 } from 'lucide-react'
 
 export const metadata: Metadata = {
@@ -53,13 +58,14 @@ const jsonLd = {
 export default function Home() {
   return (
     <>
+      <ScrollTracker />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
 
       {/* Hero Section */}
-      <section className="relative overflow-hidden bg-gradient-to-b from-white via-blue-50/30 to-white pt-32 pb-24">
+      <section id="hero" data-track-section="hero" className="relative overflow-hidden bg-gradient-to-b from-white via-blue-50/30 to-white pt-32 pb-24">
         <div className="absolute inset-0 -z-10">
           <div className="absolute top-0 left-1/4 w-96 h-96 bg-blue-400/20 rounded-full mix-blend-multiply blur-3xl opacity-70" />
           <div className="absolute top-0 right-1/4 w-96 h-96 bg-purple-400/20 rounded-full mix-blend-multiply blur-3xl opacity-70" />
@@ -216,7 +222,7 @@ export default function Home() {
       </section>
 
       {/* Features Section */}
-      <section id="features" className="py-32 bg-gray-50">
+      <section id="features" data-track-section="features" className="py-32 bg-gray-50">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-20">
             <div className="inline-block px-4 py-2 bg-[#635BFF]/10 text-[#635BFF] rounded-full text-sm font-semibold mb-6">
@@ -297,10 +303,117 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Mobile App Section 1 */}
+      <section id="mobile_app_1" data-track-section="mobile_app_1" className="py-28 bg-white">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+            {/* Text */}
+            <div>
+              <div className="inline-flex items-center rounded-full border border-[#635BFF]/20 bg-[#635BFF]/5 px-4 py-1.5 text-sm text-[#635BFF] font-semibold mb-6">
+                <Smartphone className="mr-2 h-4 w-4" />
+                Mobile App
+              </div>
+              <h2 className="text-4xl md:text-5xl font-extrabold text-gray-900 mb-6">
+                Your finances in your pocket
+              </h2>
+              <p className="text-lg text-gray-600 mb-8">
+                TrackrAI has a mobile app. Add transactions, view your spending, and check your balance from anywhere. The app shares the same data as your web dashboard in real time.
+              </p>
+              <ul className="space-y-4 mb-8">
+                {[
+                  'Add transactions from your phone in seconds',
+                  'View your spending by category and merchant anywhere',
+                  'Check your account balance on the go',
+                  'See upcoming recurring payments before they hit',
+                ].map((point) => (
+                  <li key={point} className="flex items-start gap-3">
+                    <CheckCircle2 className="h-5 w-5 text-[#635BFF] shrink-0 mt-0.5" />
+                    <span className="text-gray-700">{point}</span>
+                  </li>
+                ))}
+              </ul>
+              <AppStoreBadges />
+              <p className="text-xs text-gray-400 mt-3">Mobile apps coming soon. Web app available now.</p>
+            </div>
+            {/* Phone Mockup */}
+            <div className="flex justify-center lg:justify-end">
+              <div className="relative">
+                <div className="absolute -inset-6 bg-gradient-to-r from-[#635BFF]/15 to-indigo-400/15 rounded-full blur-3xl" />
+                <div className="relative w-60 bg-gray-900 rounded-[2.5rem] p-2.5 shadow-2xl">
+                  <div className="bg-gray-800 rounded-[2rem] overflow-hidden">
+                    {/* notch */}
+                    <div className="bg-gray-900 h-7 flex items-center justify-center">
+                      <div className="w-20 h-4 bg-gray-800 rounded-full" />
+                    </div>
+                    {/* screen */}
+                    <div className="bg-white min-h-[460px] p-3">
+                      {/* status bar mockup */}
+                      <div className="flex justify-between items-center mb-4 px-1">
+                        <span className="text-xs font-semibold text-gray-900">9:41</span>
+                        <div className="flex gap-1 items-center">
+                          <div className="w-3 h-2 rounded-sm bg-gray-900 opacity-80" />
+                        </div>
+                      </div>
+                      {/* header */}
+                      <div className="mb-4">
+                        <p className="text-xs text-gray-500">Good morning</p>
+                        <p className="text-base font-bold text-gray-900">Your Balance</p>
+                        <p className="text-3xl font-extrabold text-gray-900 mt-1">$24,532</p>
+                        <p className="text-xs text-green-600 mt-0.5">+$340 this week</p>
+                      </div>
+                      {/* quick stats */}
+                      <div className="grid grid-cols-2 gap-2 mb-4">
+                        <div className="bg-green-50 rounded-xl p-2.5">
+                          <p className="text-xs text-gray-500">Income</p>
+                          <p className="text-sm font-bold text-gray-900">$8,420</p>
+                        </div>
+                        <div className="bg-red-50 rounded-xl p-2.5">
+                          <p className="text-xs text-gray-500">Expenses</p>
+                          <p className="text-sm font-bold text-gray-900">$3,280</p>
+                        </div>
+                      </div>
+                      {/* recent transactions */}
+                      <p className="text-xs font-semibold text-gray-700 mb-2">Recent</p>
+                      <div className="space-y-2">
+                        {[
+                          { name: 'Netflix', amount: '-$15.99', color: 'bg-red-100 text-red-600' },
+                          { name: 'Salary', amount: '+$4,200', color: 'bg-green-100 text-green-600' },
+                          { name: 'Groceries', amount: '-$84.30', color: 'bg-orange-100 text-orange-600' },
+                        ].map((tx) => (
+                          <div key={tx.name} className="flex justify-between items-center p-2 bg-gray-50 rounded-lg">
+                            <span className="text-xs text-gray-700 font-medium">{tx.name}</span>
+                            <span className={`text-xs font-bold px-1.5 py-0.5 rounded ${tx.color}`}>{tx.amount}</span>
+                          </div>
+                        ))}
+                      </div>
+                      {/* bottom nav */}
+                      <div className="flex justify-around mt-5 pt-3 border-t border-gray-100">
+                        <div className="flex flex-col items-center gap-0.5">
+                          <div className="w-4 h-4 rounded bg-[#635BFF]" />
+                          <span className="text-[9px] text-[#635BFF] font-medium">Home</span>
+                        </div>
+                        <div className="flex flex-col items-center gap-0.5">
+                          <div className="w-4 h-4 rounded bg-gray-300" />
+                          <span className="text-[9px] text-gray-400">Txns</span>
+                        </div>
+                        <div className="flex flex-col items-center gap-0.5">
+                          <div className="w-4 h-4 rounded bg-gray-300" />
+                          <span className="text-[9px] text-gray-400">Reports</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Individual Feature Sections */}
-      
+
       {/* Feature 1: Smart Analytics */}
-      <section className="py-28 bg-white">
+      <section id="analytics" data-track-section="analytics" className="py-28 bg-gray-50">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div>
@@ -348,7 +461,7 @@ export default function Home() {
       </section>
 
       {/* Feature 2: Recurring Transactions */}
-      <section className="py-28 bg-gray-50">
+      <section id="recurring" data-track-section="recurring" className="py-28 bg-white">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div className="order-2 lg:order-1 relative">
@@ -425,7 +538,7 @@ export default function Home() {
       </section>
 
       {/* Feature 3: Category Management */}
-      <section className="py-28 bg-white">
+      <section id="categories" data-track-section="categories" className="py-28 bg-gray-50">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div>
@@ -486,7 +599,7 @@ export default function Home() {
       </section>
 
       {/* Feature 4: Merchant Management */}
-      <section className="py-28 bg-gray-50">
+      <section id="merchants" data-track-section="merchants" className="py-28 bg-white">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div className="order-2 lg:order-1 relative">
@@ -567,7 +680,7 @@ export default function Home() {
       </section>
 
       {/* Feature 5: Reporting */}
-      <section className="py-28 bg-white">
+      <section id="reports" data-track-section="reports" className="py-28 bg-gray-50">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div>
@@ -655,7 +768,7 @@ export default function Home() {
       </section>
 
       {/* Testimonials Section */}
-      <section className="py-28 bg-gray-50">
+      <section id="testimonials" data-track-section="testimonials" className="py-28 bg-gray-50">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <div className="inline-block px-4 py-2 bg-purple-100 text-[#635BFF] rounded-full text-sm font-semibold mb-6">
@@ -722,8 +835,91 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Mobile App Section 2 — Web and Mobile in Sync */}
+      <section id="mobile_app_2" data-track-section="mobile_app_2" className="py-28 bg-white">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <div className="inline-flex items-center rounded-full border border-[#635BFF]/20 bg-[#635BFF]/5 px-4 py-1.5 text-sm text-[#635BFF] font-semibold mb-6">
+              <RefreshCw className="mr-2 h-4 w-4" />
+              Cross-Platform Sync
+            </div>
+            <h2 className="text-4xl md:text-5xl font-extrabold text-gray-900 mb-6">
+              Your data, always in sync
+            </h2>
+            <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+              Add a transaction on your phone and see the update on your web dashboard right away. Supabase keeps your data in sync across all devices. Your reports, categories, and merchants stay current everywhere.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 items-center max-w-4xl mx-auto">
+            {/* Web Dashboard */}
+            <div className="text-center">
+              <div className="relative rounded-2xl border border-gray-200 bg-gray-50 p-4 shadow-lg mb-4">
+                <div className="flex items-center gap-1.5 mb-3">
+                  <div className="w-2.5 h-2.5 rounded-full bg-red-400" />
+                  <div className="w-2.5 h-2.5 rounded-full bg-yellow-400" />
+                  <div className="w-2.5 h-2.5 rounded-full bg-green-400" />
+                  <div className="flex-1 bg-white border border-gray-200 rounded px-2 py-0.5 text-xs text-gray-400 ml-2">
+                    app.trackrai.io
+                  </div>
+                </div>
+                <div className="space-y-2">
+                  <div className="h-4 bg-[#635BFF]/20 rounded w-3/4" />
+                  <div className="h-3 bg-gray-200 rounded w-full" />
+                  <div className="h-3 bg-gray-200 rounded w-5/6" />
+                  <div className="h-16 bg-gradient-to-t from-[#635BFF]/10 to-transparent rounded-lg flex items-end justify-around px-2 pb-1">
+                    {[50, 80, 60, 90, 70].map((h, i) => (
+                      <div key={i} className="w-3 bg-[#635BFF]/40 rounded-t" style={{ height: `${h}%` }} />
+                    ))}
+                  </div>
+                </div>
+              </div>
+              <p className="text-sm font-semibold text-gray-800">Web Dashboard</p>
+              <p className="text-xs text-gray-500 mt-1">Full analytics, reports, and CSV import</p>
+            </div>
+
+            {/* Sync Arrow */}
+            <div className="flex flex-col items-center justify-center py-4">
+              <div className="w-12 h-12 rounded-full bg-[#635BFF]/10 flex items-center justify-center mb-3">
+                <ArrowRightLeft className="h-6 w-6 text-[#635BFF]" />
+              </div>
+              <p className="text-xs text-gray-500 text-center font-medium">Real-time sync<br />via Supabase</p>
+            </div>
+
+            {/* Mobile App */}
+            <div className="text-center">
+              <div className="relative inline-block mb-4">
+                <div className="w-28 bg-gray-900 rounded-2xl p-1.5 shadow-lg mx-auto">
+                  <div className="bg-gray-800 rounded-xl overflow-hidden">
+                    <div className="bg-gray-900 h-4 flex items-center justify-center">
+                      <div className="w-10 h-2 bg-gray-800 rounded-full" />
+                    </div>
+                    <div className="bg-white p-2 min-h-[100px]">
+                      <p className="text-[8px] text-gray-400">Balance</p>
+                      <p className="text-sm font-bold text-gray-900">$24,532</p>
+                      <div className="space-y-1 mt-2">
+                        <div className="h-1.5 bg-[#635BFF]/20 rounded w-full" />
+                        <div className="h-1.5 bg-gray-200 rounded w-4/5" />
+                        <div className="h-1.5 bg-gray-200 rounded w-2/3" />
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <p className="text-sm font-semibold text-gray-800">Mobile App</p>
+              <p className="text-xs text-gray-500 mt-1">Quick transactions, on-the-go overview</p>
+            </div>
+          </div>
+
+          <div className="text-center mt-12">
+            <AppStoreBadges />
+            <p className="text-xs text-gray-400 mt-3">Mobile apps coming soon. Web app available now.</p>
+          </div>
+        </div>
+      </section>
+
       {/* CTA Section */}
-      <section className="py-28 bg-gradient-to-br from-gray-900 via-gray-900 to-[#635BFF] relative overflow-hidden">
+      <section id="final_cta" data-track-section="final_cta" className="py-28 bg-gradient-to-br from-gray-900 via-gray-900 to-[#635BFF] relative overflow-hidden">
         <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PHBhdHRlcm4gaWQ9ImdyaWQiIHdpZHRoPSI2MCIgaGVpZ2h0PSI2MCIgcGF0dGVyblVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+PHBhdGggZD0iTSAxMCAwIEwgMCAwIDAgMTAiIGZpbGw9Im5vbmUiIHN0cm9rZT0id2hpdGUiIHN0cm9rZS1vcGFjaXR5PSIwLjA1IiBzdHJva2Utd2lkdGg9IjEiLz48L3BhdHRlcm4+PC9kZWZzPjxyZWN0IHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbGw9InVybCgjZ3JpZCkiLz48L3N2Zz4=')] opacity-30" />
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-center relative z-10">
           <h2 className="text-4xl sm:text-5xl md:text-6xl font-extrabold text-white mb-6">
@@ -750,7 +946,7 @@ export default function Home() {
       </section>
 
       {/* FAQ Section */}
-      <section className="py-28 bg-white">
+      <section id="faq" data-track-section="faq" className="py-28 bg-white">
         <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <div className="inline-block px-4 py-2 bg-gray-100 text-gray-700 rounded-full text-sm font-semibold mb-6">

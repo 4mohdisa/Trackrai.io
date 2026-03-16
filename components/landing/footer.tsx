@@ -26,10 +26,20 @@ export function LandingFooter() {
             </a>
           </div>
 
-          {/* Support */}
+          {/* Product */}
           <div>
-            <h3 className="text-sm font-semibold text-gray-900 mb-4">Support</h3>
+            <h3 className="text-sm font-semibold text-gray-900 mb-4">Product</h3>
             <ul className="space-y-3">
+              <li>
+                <Link href="/#features" className="text-sm text-gray-600 hover:text-gray-900 transition-colors">
+                  Features
+                </Link>
+              </li>
+              <li>
+                <Link href="/blog" className="text-sm text-gray-600 hover:text-gray-900 transition-colors">
+                  Blog
+                </Link>
+              </li>
               <li>
                 <Link href="/help" className="text-sm text-gray-600 hover:text-gray-900 transition-colors">
                   Help Center
