@@ -1,7 +1,6 @@
 'use client'
 
 import { useState } from 'react'
-import Link from 'next/link'
 import { Button } from '@/components/ui/button'
 import { Card } from '@/components/ui/card'
 import { CheckCircle2 } from 'lucide-react'
@@ -14,16 +13,16 @@ export function PricingSection() {
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12">
           <div className="inline-block px-4 py-2 bg-green-100 text-green-700 rounded-full text-sm font-semibold mb-6">
-            LIMITED TIME: 14-DAY FREE TRIAL
+            14-DAY FREE TRIAL ON PRO
           </div>
           <h2 className="text-5xl md:text-6xl font-bold text-gray-900 mb-6">
-            Investment in yourself
+            Simple, transparent pricing
           </h2>
           <p className="text-xl text-gray-600 max-w-2xl mx-auto mb-4">
-            Our Pro users save an average of <span className="font-semibold text-gray-900">$847/month</span>. That&apos;s over <span className="font-semibold text-gray-900">140x ROI</span>.
+            Start free and upgrade when you&apos;re ready. <span className="font-semibold text-gray-900">No hidden fees.</span>
           </p>
           <p className="text-sm text-gray-500">
-            Join risk-free with our 14-day money-back guarantee
+            Cancel anytime — no contracts, no hassle
           </p>
         </div>
 
@@ -68,11 +67,11 @@ export function PricingSection() {
                 <p className="text-gray-600 text-sm">Perfect for getting started</p>
               </div>
               
-              <Link href="/sign-up" className="block mb-8">
+              <a href="https://www.app.trackrai.io/sign-up" className="block mb-8">
                 <Button size="lg" variant="outline" className="w-full text-base py-6 rounded-full border-2 border-gray-300 hover:bg-gray-50 hover:border-gray-400 transition-all">
                   Get started free
                 </Button>
-              </Link>
+              </a>
               
               <div className="space-y-4">
                 <p className="text-sm font-semibold text-gray-900 mb-4">What&apos;s included:</p>
@@ -140,16 +139,16 @@ export function PricingSection() {
                 )}
               </div>
               
-              <Link href="/sign-up" className="block mb-8">
-                <Button size="lg" className="w-full bg-[#635BFF] hover:bg-[#5851EA] text-white text-base py-6 rounded-full shadow-lg transition-all font-semibold">
-                  Start 14-Day Free Trial →
+              <a href="https://www.app.trackrai.io/sign-up" className="block mb-8">
+                <Button size="lg" className="w-full bg-gray-900 hover:bg-gray-800 text-white text-base py-6 rounded-full shadow-lg transition-all font-semibold">
+                  Start 14-Day Free Trial
                 </Button>
-              </Link>
+              </a>
               
               <div className="space-y-4">
                 <div className="bg-green-50 border border-green-200 rounded-lg p-3 mb-4">
                   <p className="text-sm text-green-700 font-semibold text-center">
-                    💰 Avg. User ROI: 140x in first 90 days
+                    Unlimited tracking + AI insights for less than a coffee
                   </p>
                 </div>
                 <p className="text-sm font-semibold text-gray-900 mb-4">Everything in Free, plus:</p>
@@ -211,7 +210,7 @@ export function PricingSection() {
             ✓ 14-day money-back guarantee • ✓ Bank-level security • ✓ Cancel anytime • ✓ No hidden fees
           </p>
           <p className="text-xs text-gray-500">
-            Over 10,000 professionals trust Zepto with their finances
+            Trusted by individuals who take their finances seriously
           </p>
         </div>
       </div>

@@ -1,5 +1,26 @@
+import type { Metadata } from 'next'
 import { Lock, Shield, Server, Key, Eye, AlertTriangle } from 'lucide-react'
 import { Card } from '@/components/ui/card'
+
+export const metadata: Metadata = {
+  title: 'Security & Disclaimer',
+  description:
+    'TrackrAI uses 256-bit AES encryption, TLS 1.3 in transit, and row-level data isolation to keep your financial information private and secure.',
+  alternates: {
+    canonical: '/security',
+  },
+  openGraph: {
+    title: 'Security & Disclaimer | TrackrAI',
+    description:
+      'TrackrAI uses 256-bit AES encryption, TLS 1.3 in transit, and row-level data isolation to keep your financial information private and secure.',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Security & Disclaimer | TrackrAI',
+    description:
+      'TrackrAI uses 256-bit AES encryption, TLS 1.3 in transit, and row-level data isolation to keep your financial information private and secure.',
+  },
+}
 
 export default function SecurityPage() {
   return (
@@ -107,14 +128,14 @@ export default function SecurityPage() {
 
             <h3 className="text-xl font-bold text-gray-900 mt-8 mb-4">Not Financial Advice</h3>
             <p className="text-gray-600 mb-6">
-              Zepto is a personal finance tracking tool designed to help you organize and visualize your 
+              TrackrAI is a personal finance tracking tool designed to help you organize and visualize your 
               financial data. The information, analytics, and insights provided by our application are for 
               informational purposes only and should not be considered financial, investment, tax, or legal advice.
             </p>
 
             <h3 className="text-xl font-bold text-gray-900 mt-8 mb-4">User Responsibility</h3>
             <p className="text-gray-600 mb-6">
-              You are solely responsible for the accuracy of the financial data you enter into Zepto. 
+              You are solely responsible for the accuracy of the financial data you enter into TrackrAI. 
               We do not verify the accuracy of user-entered information. Any financial decisions you make 
               based on the data or insights from our application are made at your own risk.
             </p>
@@ -147,14 +168,17 @@ export default function SecurityPage() {
       <section className="py-16">
         <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-2xl font-bold text-gray-900 mb-4">Report a Security Issue</h2>
-          <p className="text-gray-600 mb-6">
-            If you discover a security vulnerability, please report it responsibly to our security team.
+          <p className="text-gray-600 mb-2">
+            If you discover a security vulnerability, please report it responsibly to our team.
           </p>
-          <a 
-            href="mailto:security@zepto.app" 
-            className="inline-flex items-center px-6 py-3 bg-[#635BFF] text-white rounded-full hover:bg-[#5851EA] transition-colors"
+          <p className="text-gray-500 text-sm mb-8">
+            Use our Help page and select <span className="font-medium text-gray-700">Security Concern</span> as the support type.
+          </p>
+          <a
+            href="/help"
+            className="inline-flex items-center px-6 py-3 bg-[#635BFF] text-white rounded-full hover:bg-[#5851EA] transition-colors cursor-pointer"
           >
-            Contact Security Team
+            Contact Support
           </a>
         </div>
       </section>

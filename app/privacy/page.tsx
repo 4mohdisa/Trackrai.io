@@ -1,4 +1,25 @@
+import type { Metadata } from 'next'
 import { Shield } from 'lucide-react'
+
+export const metadata: Metadata = {
+  title: 'Privacy Policy',
+  description:
+    'Learn how TrackrAI handles your personal and financial data. We use industry-standard encryption, never sell your information, and give you full control over your data.',
+  alternates: {
+    canonical: '/privacy',
+  },
+  openGraph: {
+    title: 'Privacy Policy | TrackrAI',
+    description:
+      'Learn how TrackrAI handles your personal and financial data. We use industry-standard encryption, never sell your information, and give you full control over your data.',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Privacy Policy | TrackrAI',
+    description:
+      'Learn how TrackrAI handles your personal and financial data. We use industry-standard encryption, never sell your information, and give you full control over your data.',
+  },
+}
 
 export default function PrivacyPage() {
   return (
@@ -27,7 +48,7 @@ export default function PrivacyPage() {
             
             <h2 className="text-2xl font-bold text-gray-900 mt-12 mb-4">1. Introduction</h2>
             <p className="text-gray-600 mb-6">
-              Welcome to Zepto. We respect your privacy and are committed to protecting your personal data. 
+              Welcome to TrackrAI. We respect your privacy and are committed to protecting your personal data. 
               This privacy policy explains how we collect, use, and safeguard your information when you use our 
               personal finance management application.
             </p>
@@ -89,12 +110,15 @@ export default function PrivacyPage() {
             </p>
 
             <h2 className="text-2xl font-bold text-gray-900 mt-12 mb-4">9. Contact Us</h2>
-            <p className="text-gray-600 mb-6">
-              If you have any questions about this privacy policy or our data practices, please contact us at{' '}
-              <a href="mailto:privacy@zepto.app" className="text-[#635BFF] hover:underline">
-                privacy@zepto.app
-              </a>
+            <p className="text-gray-600 mb-4">
+              If you have any questions about this privacy policy or our data practices, visit our Help page to send us a message.
             </p>
+            <a
+              href="/help"
+              className="inline-flex items-center gap-1.5 text-[#635BFF] font-medium hover:underline"
+            >
+              Go to the Help Center &rarr;
+            </a>
 
           </div>
         </div>

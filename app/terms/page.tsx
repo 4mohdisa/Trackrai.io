@@ -1,4 +1,25 @@
+import type { Metadata } from 'next'
 import { FileText } from 'lucide-react'
+
+export const metadata: Metadata = {
+  title: 'Terms of Service',
+  description:
+    'Read the terms and conditions for using TrackrAI, including user responsibilities, data ownership, intellectual property, and service disclaimers.',
+  alternates: {
+    canonical: '/terms',
+  },
+  openGraph: {
+    title: 'Terms of Service | TrackrAI',
+    description:
+      'Read the terms and conditions for using TrackrAI, including user responsibilities, data ownership, intellectual property, and service disclaimers.',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Terms of Service | TrackrAI',
+    description:
+      'Read the terms and conditions for using TrackrAI, including user responsibilities, data ownership, intellectual property, and service disclaimers.',
+  },
+}
 
 export default function TermsPage() {
   return (
@@ -27,13 +48,13 @@ export default function TermsPage() {
             
             <h2 className="text-2xl font-bold text-gray-900 mt-12 mb-4">1. Acceptance of Terms</h2>
             <p className="text-gray-600 mb-6">
-              By accessing or using Zepto, you agree to be bound by these Terms of Service and our Privacy Policy. 
+              By accessing or using TrackrAI, you agree to be bound by these Terms of Service and our Privacy Policy. 
               If you do not agree to these terms, please do not use our service.
             </p>
 
             <h2 className="text-2xl font-bold text-gray-900 mt-12 mb-4">2. Description of Service</h2>
             <p className="text-gray-600 mb-6">
-              Zepto is a personal finance management application that allows users to track income, expenses, 
+              TrackrAI is a personal finance management application that allows users to track income, expenses, 
               recurring transactions, and analyze spending patterns. The service is provided &ldquo;as is&rdquo; and we 
               reserve the right to modify or discontinue features at any time.
             </p>
@@ -60,28 +81,28 @@ export default function TermsPage() {
 
             <h2 className="text-2xl font-bold text-gray-900 mt-12 mb-4">5. User Content</h2>
             <p className="text-gray-600 mb-6">
-              You retain ownership of all financial data you enter into Zepto. By using our service, you grant 
+              You retain ownership of all financial data you enter into TrackrAI. By using our service, you grant 
               us a limited license to process this data solely for the purpose of providing our services to you. 
               We will not share your financial data with third parties except as described in our Privacy Policy.
             </p>
 
             <h2 className="text-2xl font-bold text-gray-900 mt-12 mb-4">6. Intellectual Property</h2>
             <p className="text-gray-600 mb-6">
-              The Zepto application, including its design, features, and content, is protected by copyright, 
+              The TrackrAI application, including its design, features, and content, is protected by copyright, 
               trademark, and other intellectual property laws. You may not copy, modify, distribute, or create 
               derivative works without our express written permission.
             </p>
 
             <h2 className="text-2xl font-bold text-gray-900 mt-12 mb-4">7. Disclaimer of Warranties</h2>
             <p className="text-gray-600 mb-6">
-              Zepto is provided &ldquo;as is&rdquo; without warranties of any kind. We do not guarantee that the service 
+              TrackrAI is provided &ldquo;as is&rdquo; without warranties of any kind. We do not guarantee that the service 
               will be uninterrupted, error-free, or secure. We are not responsible for any financial decisions 
               you make based on information provided by our service.
             </p>
 
             <h2 className="text-2xl font-bold text-gray-900 mt-12 mb-4">8. Limitation of Liability</h2>
             <p className="text-gray-600 mb-6">
-              To the maximum extent permitted by law, Zepto and its affiliates shall not be liable for any 
+              To the maximum extent permitted by law, TrackrAI and its affiliates shall not be liable for any 
               indirect, incidental, special, consequential, or punitive damages, including loss of profits, 
               data, or other intangible losses resulting from your use of the service.
             </p>
@@ -107,12 +128,15 @@ export default function TermsPage() {
             </p>
 
             <h2 className="text-2xl font-bold text-gray-900 mt-12 mb-4">12. Contact</h2>
-            <p className="text-gray-600 mb-6">
-              For questions about these Terms of Service, please contact us at{' '}
-              <a href="mailto:legal@zepto.app" className="text-[#635BFF] hover:underline">
-                legal@zepto.app
-              </a>
+            <p className="text-gray-600 mb-4">
+              For questions about these Terms of Service, visit our Help page to send us a message.
             </p>
+            <a
+              href="/help"
+              className="inline-flex items-center gap-1.5 text-[#635BFF] font-medium hover:underline"
+            >
+              Go to the Help Center &rarr;
+            </a>
 
           </div>
         </div>

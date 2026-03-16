@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import { Twitter, Linkedin } from 'lucide-react'
+import { Mail } from 'lucide-react'
 
 export function LandingFooter() {
   return (
@@ -10,30 +10,20 @@ export function LandingFooter() {
           <div className="space-y-4">
             <Link href="/" className="flex items-center space-x-2">
               <span className="text-xl font-semibold bg-clip-text text-transparent bg-gradient-to-r from-[#635BFF] to-[#0A2540]">
-                Zepto
+                TrackrAI
               </span>
             </Link>
-            <p className="text-sm text-gray-600 max-w-xs">
-              Your personal finance manager. Track, analyze, and optimize your financial life with ease.
+            <p className="text-sm text-gray-600 max-w-xs leading-relaxed">
+              AI-Powered Personal Finance Tracker. Track expenses, manage recurring payments, and generate financial reports.
             </p>
-            <div className="flex items-center space-x-3">
-              <Link 
-                href="https://twitter.com" 
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-gray-600 hover:text-[#635BFF] transition-colors"
-              >
-                <Twitter className="h-5 w-5" />
-              </Link>
-              <Link 
-                href="https://linkedin.com" 
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-gray-600 hover:text-[#635BFF] transition-colors"
-              >
-                <Linkedin className="h-5 w-5" />
-              </Link>
-            </div>
+            <a
+              href="mailto:support@trackrai.io"
+              className="inline-flex items-center gap-2 text-sm text-gray-500 hover:text-[#635BFF] transition-colors"
+              aria-label="Email support"
+            >
+              <Mail className="h-4 w-4" />
+              support@trackrai.io
+            </a>
           </div>
 
           {/* Support */}
@@ -73,12 +63,11 @@ export function LandingFooter() {
 
         {/* Bottom Bar */}
         <div className="pt-8 border-t border-gray-200">
-          <p className="text-center text-sm text-gray-600">
-            © {new Date().getFullYear()} Zepto. All rights reserved.
+          <p className="text-center text-sm text-gray-500">
+            © {new Date().getFullYear()} TrackrAI. All rights reserved. trackrai.io
           </p>
         </div>
       </div>
     </footer>
   )
 }
-
