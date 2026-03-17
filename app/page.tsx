@@ -7,24 +7,24 @@ import { SITE_URL, SITE_NAME } from '@/constants/site'
 import { SignupCTA } from '@/components/landing/signup-cta'
 import { AppStoreBadges } from '@/components/landing/app-store-badges'
 import { ScrollTracker } from '@/components/landing/scroll-tracker'
+import { HeroDashboard } from '@/components/landing/hero-dashboard'
+import { AnimatedPhone } from '@/components/landing/animated-phone'
+import { AnalyticsChart } from '@/components/landing/analytics-chart'
+import { RecurringCard } from '@/components/landing/recurring-card'
+import { CategoryGrid } from '@/components/landing/category-grid'
+import { MerchantsCard } from '@/components/landing/merchants-card'
+import { ReportsCard } from '@/components/landing/reports-card'
+import { SyncSection } from '@/components/landing/sync-section'
 import {
   BarChart3,
-  TrendingUp,
-  Shield,
   Zap,
   PieChart,
-  Calendar,
   Repeat,
-  DollarSign,
-  LineChart,
   Sparkles,
-  CreditCard,
   CheckCircle2,
   Store,
   FileBarChart2,
   Smartphone,
-  RefreshCw,
-  ArrowRightLeft,
 } from 'lucide-react'
 
 export const metadata: Metadata = {
@@ -122,65 +122,8 @@ export default function Home() {
               No credit card required. Free to get started.
             </p>
 
-            {/* Dashboard Preview */}
-            <div className="relative mx-auto max-w-5xl">
-              <div className="absolute -inset-4 bg-gradient-to-r from-[#635BFF]/20 to-[#00D4FF]/20 rounded-3xl blur-3xl" />
-              <div className="relative rounded-2xl border border-gray-200 bg-white shadow-2xl overflow-hidden">
-                <div className="flex items-center gap-2 border-b border-gray-200 px-4 py-3 bg-gray-50">
-                  <div className="flex gap-1.5">
-                    <div className="w-3 h-3 rounded-full bg-red-400" />
-                    <div className="w-3 h-3 rounded-full bg-yellow-400" />
-                    <div className="w-3 h-3 rounded-full bg-green-400" />
-                  </div>
-                  <div className="flex-1 mx-4">
-                    <div className="bg-white border border-gray-200 rounded-md px-3 py-1.5 text-xs text-gray-500">
-                      app.trackrai.io/dashboard
-                    </div>
-                  </div>
-                </div>
-
-                <div className="bg-gradient-to-br from-gray-50 to-white p-4 sm:p-8">
-                  <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
-                    <Card className="p-6 border-gray-200 bg-white">
-                      <div className="flex items-center justify-between mb-2">
-                        <span className="text-sm text-gray-600">Total Balance</span>
-                        <TrendingUp className="h-4 w-4 text-green-500" />
-                      </div>
-                      <p className="text-3xl font-bold text-gray-900">$24,532</p>
-                      <p className="text-xs text-green-600 mt-1">+12.5% this month</p>
-                    </Card>
-                    <Card className="p-6 border-gray-200 bg-white">
-                      <div className="flex items-center justify-between mb-2">
-                        <span className="text-sm text-gray-600">Income</span>
-                        <DollarSign className="h-4 w-4 text-blue-500" />
-                      </div>
-                      <p className="text-3xl font-bold text-gray-900">$8,420</p>
-                      <p className="text-xs text-gray-500 mt-1">Last 30 days</p>
-                    </Card>
-                    <Card className="p-6 border-gray-200 bg-white">
-                      <div className="flex items-center justify-between mb-2">
-                        <span className="text-sm text-gray-600">Expenses</span>
-                        <CreditCard className="h-4 w-4 text-orange-500" />
-                      </div>
-                      <p className="text-3xl font-bold text-gray-900">$3,280</p>
-                      <p className="text-xs text-gray-500 mt-1">Last 30 days</p>
-                    </Card>
-                  </div>
-
-                  <Card className="p-6 border-gray-200 bg-white">
-                    <div className="flex items-center justify-between mb-4">
-                      <h3 className="font-semibold text-gray-900">Spending Overview</h3>
-                      <LineChart className="h-4 w-4 text-gray-400" />
-                    </div>
-                    <div className="h-48 bg-gradient-to-t from-blue-50 to-transparent rounded-lg flex items-end justify-around px-4 pb-4">
-                      {[60, 80, 45, 90, 70, 55].map((h, i) => (
-                        <div key={i} className="w-8 sm:w-12 bg-gradient-to-t from-[#635BFF] to-[#635BFF]/50 rounded-t" style={{ height: `${h}%` }} />
-                      ))}
-                    </div>
-                  </Card>
-                </div>
-              </div>
-            </div>
+            {/* Dashboard Preview — animated */}
+            <HeroDashboard />
           </div>
         </div>
       </section>
@@ -335,77 +278,8 @@ export default function Home() {
               <AppStoreBadges />
               <p className="text-xs text-gray-400 mt-3">Mobile apps coming soon. Web app available now.</p>
             </div>
-            {/* Phone Mockup */}
-            <div className="flex justify-center lg:justify-end">
-              <div className="relative">
-                <div className="absolute -inset-6 bg-gradient-to-r from-[#635BFF]/15 to-indigo-400/15 rounded-full blur-3xl" />
-                <div className="relative w-60 bg-gray-900 rounded-[2.5rem] p-2.5 shadow-2xl">
-                  <div className="bg-gray-800 rounded-[2rem] overflow-hidden">
-                    {/* notch */}
-                    <div className="bg-gray-900 h-7 flex items-center justify-center">
-                      <div className="w-20 h-4 bg-gray-800 rounded-full" />
-                    </div>
-                    {/* screen */}
-                    <div className="bg-white min-h-[460px] p-3">
-                      {/* status bar mockup */}
-                      <div className="flex justify-between items-center mb-4 px-1">
-                        <span className="text-xs font-semibold text-gray-900">9:41</span>
-                        <div className="flex gap-1 items-center">
-                          <div className="w-3 h-2 rounded-sm bg-gray-900 opacity-80" />
-                        </div>
-                      </div>
-                      {/* header */}
-                      <div className="mb-4">
-                        <p className="text-xs text-gray-500">Good morning</p>
-                        <p className="text-base font-bold text-gray-900">Your Balance</p>
-                        <p className="text-3xl font-extrabold text-gray-900 mt-1">$24,532</p>
-                        <p className="text-xs text-green-600 mt-0.5">+$340 this week</p>
-                      </div>
-                      {/* quick stats */}
-                      <div className="grid grid-cols-2 gap-2 mb-4">
-                        <div className="bg-green-50 rounded-xl p-2.5">
-                          <p className="text-xs text-gray-500">Income</p>
-                          <p className="text-sm font-bold text-gray-900">$8,420</p>
-                        </div>
-                        <div className="bg-red-50 rounded-xl p-2.5">
-                          <p className="text-xs text-gray-500">Expenses</p>
-                          <p className="text-sm font-bold text-gray-900">$3,280</p>
-                        </div>
-                      </div>
-                      {/* recent transactions */}
-                      <p className="text-xs font-semibold text-gray-700 mb-2">Recent</p>
-                      <div className="space-y-2">
-                        {[
-                          { name: 'Netflix', amount: '-$15.99', color: 'bg-red-100 text-red-600' },
-                          { name: 'Salary', amount: '+$4,200', color: 'bg-green-100 text-green-600' },
-                          { name: 'Groceries', amount: '-$84.30', color: 'bg-orange-100 text-orange-600' },
-                        ].map((tx) => (
-                          <div key={tx.name} className="flex justify-between items-center p-2 bg-gray-50 rounded-lg">
-                            <span className="text-xs text-gray-700 font-medium">{tx.name}</span>
-                            <span className={`text-xs font-bold px-1.5 py-0.5 rounded ${tx.color}`}>{tx.amount}</span>
-                          </div>
-                        ))}
-                      </div>
-                      {/* bottom nav */}
-                      <div className="flex justify-around mt-5 pt-3 border-t border-gray-100">
-                        <div className="flex flex-col items-center gap-0.5">
-                          <div className="w-4 h-4 rounded bg-[#635BFF]" />
-                          <span className="text-[9px] text-[#635BFF] font-medium">Home</span>
-                        </div>
-                        <div className="flex flex-col items-center gap-0.5">
-                          <div className="w-4 h-4 rounded bg-gray-300" />
-                          <span className="text-[9px] text-gray-400">Txns</span>
-                        </div>
-                        <div className="flex flex-col items-center gap-0.5">
-                          <div className="w-4 h-4 rounded bg-gray-300" />
-                          <span className="text-[9px] text-gray-400">Reports</span>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
+            {/* Phone Mockup — animated multi-screen */}
+            <AnimatedPhone />
           </div>
         </div>
       </section>
@@ -442,20 +316,8 @@ export default function Home() {
                 </li>
               </ul>
             </div>
-            <div className="relative">
-              <div className="absolute -inset-4 bg-gradient-to-r from-blue-500/10 to-purple-500/10 rounded-3xl blur-2xl" />
-              <Card className="relative p-8 border-gray-200 bg-white shadow-xl hover:shadow-2xl hover:-translate-y-1 transition-all duration-300">
-                <div className="h-64 bg-gradient-to-t from-blue-50 to-transparent rounded-lg flex items-end justify-around px-6 pb-6">
-                  {[65, 85, 55, 95, 75, 60, 90, 70].map((height, i) => (
-                    <div 
-                      key={i} 
-                      className="w-8 bg-gradient-to-t from-[#635BFF] to-[#635BFF]/60 rounded-t-lg transition-all hover:opacity-75"
-                      style={{ height: `${height}%` }}
-                    />
-                  ))}
-                </div>
-              </Card>
-            </div>
+            {/* Analytics chart — animated */}
+            <AnalyticsChart />
           </div>
         </div>
       </section>
@@ -464,48 +326,9 @@ export default function Home() {
       <section id="recurring" data-track-section="recurring" className="py-28 bg-white">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            <div className="order-2 lg:order-1 relative">
-              <div className="absolute -inset-4 bg-gradient-to-r from-green-500/10 to-emerald-500/10 rounded-3xl blur-2xl" />
-              <Card className="relative p-8 border-gray-200 bg-white shadow-xl hover:shadow-2xl hover:-translate-y-1 transition-all duration-300">
-                <div className="space-y-4">
-                  <div className="flex items-center justify-between p-4 bg-green-50 border border-green-200 rounded-lg">
-                    <div className="flex items-center space-x-3">
-                      <div className="w-10 h-10 rounded-full bg-green-500 flex items-center justify-center">
-                        <Repeat className="h-5 w-5 text-white" />
-                      </div>
-                      <div>
-                        <p className="font-semibold text-gray-900">Netflix</p>
-                        <p className="text-sm text-gray-600">Monthly</p>
-                      </div>
-                    </div>
-                    <p className="font-bold text-gray-900">$15.99</p>
-                  </div>
-                  <div className="flex items-center justify-between p-4 bg-blue-50 border border-blue-200 rounded-lg">
-                    <div className="flex items-center space-x-3">
-                      <div className="w-10 h-10 rounded-full bg-blue-500 flex items-center justify-center">
-                        <Calendar className="h-5 w-5 text-white" />
-                      </div>
-                      <div>
-                        <p className="font-semibold text-gray-900">Rent</p>
-                        <p className="text-sm text-gray-600">Monthly</p>
-                      </div>
-                    </div>
-                    <p className="font-bold text-gray-900">$1,200</p>
-                  </div>
-                  <div className="flex items-center justify-between p-4 bg-purple-50 border border-purple-200 rounded-lg">
-                    <div className="flex items-center space-x-3">
-                      <div className="w-10 h-10 rounded-full bg-purple-500 flex items-center justify-center">
-                        <Zap className="h-5 w-5 text-white" />
-                      </div>
-                      <div>
-                        <p className="font-semibold text-gray-900">Gym Membership</p>
-                        <p className="text-sm text-gray-600">Monthly</p>
-                      </div>
-                    </div>
-                    <p className="font-bold text-gray-900">$49.99</p>
-                  </div>
-                </div>
-              </Card>
+            <div className="order-2 lg:order-1">
+              {/* Recurring card — animated */}
+              <RecurringCard />
             </div>
             <div className="order-1 lg:order-2">
               <div className="inline-flex items-center rounded-full border border-green-200 bg-green-50 px-4 py-1.5 text-sm text-green-700 mb-6">
@@ -567,33 +390,8 @@ export default function Home() {
                 </li>
               </ul>
             </div>
-            <div className="relative">
-              <div className="absolute -inset-4 bg-gradient-to-r from-orange-500/10 to-red-500/10 rounded-3xl blur-2xl" />
-              <Card className="relative p-8 border-gray-200 bg-white shadow-xl hover:shadow-2xl hover:-translate-y-1 transition-all duration-300">
-                <div className="grid grid-cols-2 gap-4">
-                  <div className="p-4 bg-blue-50 border border-blue-200 rounded-xl">
-                    <PieChart className="h-8 w-8 text-blue-600 mb-2" />
-                    <p className="text-sm font-medium text-gray-900">Food & Dining</p>
-                    <p className="text-2xl font-bold text-gray-900">$680</p>
-                  </div>
-                  <div className="p-4 bg-purple-50 border border-purple-200 rounded-xl">
-                    <PieChart className="h-8 w-8 text-purple-600 mb-2" />
-                    <p className="text-sm font-medium text-gray-900">Transportation</p>
-                    <p className="text-2xl font-bold text-gray-900">$340</p>
-                  </div>
-                  <div className="p-4 bg-green-50 border border-green-200 rounded-xl">
-                    <PieChart className="h-8 w-8 text-green-600 mb-2" />
-                    <p className="text-sm font-medium text-gray-900">Entertainment</p>
-                    <p className="text-2xl font-bold text-gray-900">$220</p>
-                  </div>
-                  <div className="p-4 bg-orange-50 border border-orange-200 rounded-xl">
-                    <PieChart className="h-8 w-8 text-orange-600 mb-2" />
-                    <p className="text-sm font-medium text-gray-900">Shopping</p>
-                    <p className="text-2xl font-bold text-gray-900">$450</p>
-                  </div>
-                </div>
-              </Card>
-            </div>
+            {/* Category grid — animated 3x2 */}
+            <CategoryGrid />
           </div>
         </div>
       </section>
@@ -602,48 +400,9 @@ export default function Home() {
       <section id="merchants" data-track-section="merchants" className="py-28 bg-white">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            <div className="order-2 lg:order-1 relative">
-              <div className="absolute -inset-4 bg-gradient-to-r from-indigo-500/10 to-violet-500/10 rounded-3xl blur-2xl" />
-              <Card className="relative p-8 border-gray-200 bg-white shadow-xl hover:shadow-2xl hover:-translate-y-1 transition-all duration-300">
-                {/* Header */}
-                <div className="flex items-center justify-between pb-4 mb-5 border-b border-gray-100">
-                  <p className="font-semibold text-gray-900">Merchant Manager</p>
-                  <span className="inline-flex items-center px-2.5 py-1 rounded-full bg-[#635BFF]/10 text-[#635BFF] text-xs font-semibold">
-                    8 merchants
-                  </span>
-                </div>
-                {/* Assigned transactions */}
-                <div className="space-y-3 mb-4">
-                  {[
-                    { name: 'Amazon', category: 'Shopping', amount: '$127.50', color: 'bg-blue-100 text-blue-600' },
-                    { name: 'Spotify', category: 'Entertainment', amount: '$9.99', color: 'bg-green-100 text-green-600' },
-                    { name: 'Whole Foods', category: 'Groceries', amount: '$84.30', color: 'bg-orange-100 text-orange-600' },
-                  ].map((row) => (
-                    <div key={row.name} className="flex items-center justify-between p-3 bg-gray-50 rounded-xl">
-                      <div className="flex items-center gap-3">
-                        <div className={`w-9 h-9 rounded-lg flex items-center justify-center shrink-0 ${row.color}`}>
-                          <Store className="h-4 w-4" />
-                        </div>
-                        <div>
-                          <p className="text-sm font-semibold text-gray-900">{row.name}</p>
-                          <p className="text-xs text-gray-500">{row.category}</p>
-                        </div>
-                      </div>
-                      <p className="text-sm font-bold text-gray-900">{row.amount}</p>
-                    </div>
-                  ))}
-                </div>
-                {/* Unassigned row */}
-                <div className="flex items-center justify-between p-3 rounded-xl border border-dashed border-gray-300 bg-amber-50/50">
-                  <div>
-                    <p className="text-sm font-medium text-gray-600">SQ*COFFEE SHOP 34B</p>
-                    <p className="text-xs text-gray-400">No merchant assigned</p>
-                  </div>
-                  <span className="text-xs bg-amber-100 text-amber-700 px-2.5 py-1 rounded-lg font-medium whitespace-nowrap">
-                    Assign →
-                  </span>
-                </div>
-              </Card>
+            <div className="order-2 lg:order-1">
+              {/* Merchants card — multi-screen */}
+              <MerchantsCard />
             </div>
             <div className="order-1 lg:order-2">
               <div className="inline-flex items-center rounded-full border border-indigo-200 bg-indigo-50 px-4 py-1.5 text-sm text-indigo-700 mb-6">
@@ -713,56 +472,8 @@ export default function Home() {
                 </li>
               </ul>
             </div>
-            <div className="relative">
-              <div className="absolute -inset-4 bg-gradient-to-r from-teal-500/10 to-cyan-500/10 rounded-3xl blur-2xl" />
-              <Card className="relative p-8 border-gray-200 bg-white shadow-xl hover:shadow-2xl hover:-translate-y-1 transition-all duration-300">
-                {/* Report header */}
-                <div className="flex items-center justify-between pb-4 mb-5 border-b border-gray-100">
-                  <div>
-                    <p className="text-xs text-gray-500 font-medium uppercase tracking-wide mb-0.5">Monthly Summary</p>
-                    <p className="text-lg font-bold text-gray-900">November 2025</p>
-                  </div>
-                  <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-green-100 text-green-700 text-xs font-semibold">
-                    <TrendingUp className="h-3 w-3" />
-                    Saved $2,360
-                  </span>
-                </div>
-                {/* KPI row */}
-                <div className="grid grid-cols-2 gap-4 mb-6">
-                  <div className="p-4 bg-green-50 border border-green-100 rounded-xl">
-                    <p className="text-xs text-gray-500 mb-1">Income</p>
-                    <p className="text-2xl font-bold text-gray-900">$6,200</p>
-                    <p className="text-xs text-green-600 mt-0.5">+3.2% vs Oct</p>
-                  </div>
-                  <div className="p-4 bg-red-50 border border-red-100 rounded-xl">
-                    <p className="text-xs text-gray-500 mb-1">Expenses</p>
-                    <p className="text-2xl font-bold text-gray-900">$3,840</p>
-                    <p className="text-xs text-red-500 mt-0.5">−8.1% vs Oct</p>
-                  </div>
-                </div>
-                {/* Top spending */}
-                <div>
-                  <p className="text-xs text-gray-500 font-medium uppercase tracking-wide mb-3">Top Spending</p>
-                  <div className="space-y-3">
-                    {[
-                      { label: 'Food & Dining', amount: '$680', pct: 68 },
-                      { label: 'Transport', amount: '$340', pct: 34 },
-                      { label: 'Shopping', amount: '$320', pct: 32 },
-                    ].map(({ label, amount, pct }) => (
-                      <div key={label}>
-                        <div className="flex justify-between text-sm mb-1">
-                          <span className="text-gray-600">{label}</span>
-                          <span className="font-semibold text-gray-900">{amount}</span>
-                        </div>
-                        <div className="h-1.5 bg-gray-100 rounded-full overflow-hidden">
-                          <div className="h-full bg-[#635BFF] rounded-full transition-all" style={{ width: `${pct}%` }} />
-                        </div>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-              </Card>
-            </div>
+            {/* Reports card — multi-screen */}
+            <ReportsCard />
           </div>
         </div>
       </section>
@@ -835,88 +546,8 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Mobile App Section 2 — Web and Mobile in Sync */}
-      <section id="mobile_app_2" data-track-section="mobile_app_2" className="py-28 bg-white">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <div className="inline-flex items-center rounded-full border border-[#635BFF]/20 bg-[#635BFF]/5 px-4 py-1.5 text-sm text-[#635BFF] font-semibold mb-6">
-              <RefreshCw className="mr-2 h-4 w-4" />
-              Cross-Platform Sync
-            </div>
-            <h2 className="text-4xl md:text-5xl font-extrabold text-gray-900 mb-6">
-              Your data, always in sync
-            </h2>
-            <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-              Add a transaction on your phone and see the update on your web dashboard right away. Supabase keeps your data in sync across all devices. Your reports, categories, and merchants stay current everywhere.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 items-center max-w-4xl mx-auto">
-            {/* Web Dashboard */}
-            <div className="text-center">
-              <div className="relative rounded-2xl border border-gray-200 bg-gray-50 p-4 shadow-lg mb-4">
-                <div className="flex items-center gap-1.5 mb-3">
-                  <div className="w-2.5 h-2.5 rounded-full bg-red-400" />
-                  <div className="w-2.5 h-2.5 rounded-full bg-yellow-400" />
-                  <div className="w-2.5 h-2.5 rounded-full bg-green-400" />
-                  <div className="flex-1 bg-white border border-gray-200 rounded px-2 py-0.5 text-xs text-gray-400 ml-2">
-                    app.trackrai.io
-                  </div>
-                </div>
-                <div className="space-y-2">
-                  <div className="h-4 bg-[#635BFF]/20 rounded w-3/4" />
-                  <div className="h-3 bg-gray-200 rounded w-full" />
-                  <div className="h-3 bg-gray-200 rounded w-5/6" />
-                  <div className="h-16 bg-gradient-to-t from-[#635BFF]/10 to-transparent rounded-lg flex items-end justify-around px-2 pb-1">
-                    {[50, 80, 60, 90, 70].map((h, i) => (
-                      <div key={i} className="w-3 bg-[#635BFF]/40 rounded-t" style={{ height: `${h}%` }} />
-                    ))}
-                  </div>
-                </div>
-              </div>
-              <p className="text-sm font-semibold text-gray-800">Web Dashboard</p>
-              <p className="text-xs text-gray-500 mt-1">Full analytics, reports, and CSV import</p>
-            </div>
-
-            {/* Sync Arrow */}
-            <div className="flex flex-col items-center justify-center py-4">
-              <div className="w-12 h-12 rounded-full bg-[#635BFF]/10 flex items-center justify-center mb-3">
-                <ArrowRightLeft className="h-6 w-6 text-[#635BFF]" />
-              </div>
-              <p className="text-xs text-gray-500 text-center font-medium">Real-time sync<br />via Supabase</p>
-            </div>
-
-            {/* Mobile App */}
-            <div className="text-center">
-              <div className="relative inline-block mb-4">
-                <div className="w-28 bg-gray-900 rounded-2xl p-1.5 shadow-lg mx-auto">
-                  <div className="bg-gray-800 rounded-xl overflow-hidden">
-                    <div className="bg-gray-900 h-4 flex items-center justify-center">
-                      <div className="w-10 h-2 bg-gray-800 rounded-full" />
-                    </div>
-                    <div className="bg-white p-2 min-h-[100px]">
-                      <p className="text-[8px] text-gray-400">Balance</p>
-                      <p className="text-sm font-bold text-gray-900">$24,532</p>
-                      <div className="space-y-1 mt-2">
-                        <div className="h-1.5 bg-[#635BFF]/20 rounded w-full" />
-                        <div className="h-1.5 bg-gray-200 rounded w-4/5" />
-                        <div className="h-1.5 bg-gray-200 rounded w-2/3" />
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <p className="text-sm font-semibold text-gray-800">Mobile App</p>
-              <p className="text-xs text-gray-500 mt-1">Quick transactions, on-the-go overview</p>
-            </div>
-          </div>
-
-          <div className="text-center mt-12">
-            <AppStoreBadges />
-            <p className="text-xs text-gray-400 mt-3">Mobile apps coming soon. Web app available now.</p>
-          </div>
-        </div>
-      </section>
+      {/* Cross-Platform Sync — dark redesign */}
+      <SyncSection />
 
       {/* CTA Section */}
       <section id="final_cta" data-track-section="final_cta" className="py-28 bg-gradient-to-br from-gray-900 via-gray-900 to-[#635BFF] relative overflow-hidden">

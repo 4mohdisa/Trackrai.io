@@ -16,7 +16,6 @@ import {
   ChevronDown,
   ChevronUp,
   Mail,
-  MessageCircle,
   BookOpen,
   Send,
   CheckCircle2,
@@ -253,154 +252,6 @@ function FAQAccordion({ category }: { category: FAQCategory }) {
   )
 }
 
-// ---------------------------------------------------------------------------
-// Feature Request inline form
-// ---------------------------------------------------------------------------
-
-const FEATURE_FORM_EMPTY = { name: '', email: '', message: '' }
-
-function FeatureRequestForm() {
-  const [form, setForm] = useState(FEATURE_FORM_EMPTY)
-  const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle')
-  const [errorMsg, setErrorMsg] = useState('')
-
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault()
-
-    const message = form.message.trim()
-    if (message.length < 10) {
-      setErrorMsg('Please describe your idea in a bit more detail (at least 10 characters).')
-      return
-    }
-
-    setStatus('loading')
-    setErrorMsg('')
-
-    try {
-      const res = await fetch('/api/contact', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          type: 'feature',
-          name: form.name.trim() || undefined,
-          email: form.email.trim() || undefined,
-          message,
-        }),
-      })
-
-      const data = await res.json()
-
-      if (!res.ok) {
-        setErrorMsg(data.error ?? 'Something went wrong. Please try again.')
-        setStatus('error')
-        return
-      }
-
-      setStatus('success')
-      setForm(FEATURE_FORM_EMPTY)
-    } catch {
-      setErrorMsg('Network error. Please check your connection and try again.')
-      setStatus('error')
-    }
-  }
-
-  if (status === 'success') {
-    return (
-      <div className="flex flex-col items-center justify-center py-8 gap-3 text-center">
-        <div className="inline-flex items-center justify-center w-12 h-12 rounded-full bg-green-100">
-          <CheckCircle2 className="h-6 w-6 text-green-600" />
-        </div>
-        <p className="font-semibold text-gray-900">Thanks for the suggestion!</p>
-        <p className="text-gray-500 text-sm">We review every request and use them to shape the product roadmap.</p>
-        <button
-          onClick={() => setStatus('idle')}
-          className="text-sm text-[#635BFF] hover:text-[#5851EA] font-medium mt-1 transition-colors"
-        >
-          Send another idea
-        </button>
-      </div>
-    )
-  }
-
-  return (
-    <form onSubmit={handleSubmit} className="space-y-4 mt-4">
-      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-        <div className="space-y-1.5">
-          <label htmlFor="feature-name" className="text-xs font-medium text-gray-700">
-            Name <span className="text-gray-400">(optional)</span>
-          </label>
-          <Input
-            id="feature-name"
-            type="text"
-            placeholder="Your name"
-            value={form.name}
-            onChange={(e) => setForm({ ...form, name: e.target.value })}
-            maxLength={100}
-            disabled={status === 'loading'}
-            className="border-gray-300 bg-white text-sm h-9"
-          />
-        </div>
-        <div className="space-y-1.5">
-          <label htmlFor="feature-email" className="text-xs font-medium text-gray-700">
-            Email <span className="text-gray-400">(optional)</span>
-          </label>
-          <Input
-            id="feature-email"
-            type="email"
-            placeholder="your@email.com"
-            value={form.email}
-            onChange={(e) => setForm({ ...form, email: e.target.value })}
-            disabled={status === 'loading'}
-            className="border-gray-300 bg-white text-sm h-9"
-          />
-        </div>
-      </div>
-
-      <div className="space-y-1.5">
-        <label htmlFor="feature-message" className="text-xs font-medium text-gray-700">
-          Your idea <span className="text-red-400">*</span>
-        </label>
-        <Textarea
-          id="feature-message"
-          placeholder="Describe the feature or improvement you'd like to see..."
-          value={form.message}
-          onChange={(e) => setForm({ ...form, message: e.target.value })}
-          required
-          rows={4}
-          maxLength={3000}
-          disabled={status === 'loading'}
-          className="border-gray-300 bg-white resize-none text-sm"
-        />
-        <p className="text-xs text-gray-400 text-right">{form.message.length}/3000</p>
-      </div>
-
-      {(errorMsg || status === 'error') && (
-        <div className="flex items-start gap-2 rounded-lg bg-red-50 border border-red-200 px-4 py-3">
-          <AlertCircle className="h-4 w-4 text-red-500 mt-0.5 shrink-0" />
-          <p className="text-sm text-red-700">{errorMsg || 'Something went wrong. Please try again.'}</p>
-        </div>
-      )}
-
-      <Button
-        type="submit"
-        disabled={status === 'loading' || form.message.trim().length < 10}
-        className="w-full bg-gray-900 hover:bg-gray-800 text-white font-semibold shadow-sm disabled:opacity-50"
-      >
-        {status === 'loading' ? (
-          <>
-            <Loader2 className="mr-2 h-4 w-4 animate-spin" />
-            Sending...
-          </>
-        ) : (
-          <>
-            <Send className="mr-2 h-4 w-4" />
-            Send Suggestion
-          </>
-        )}
-      </Button>
-    </form>
-  )
-}
 
 // ---------------------------------------------------------------------------
 // Main Help page
@@ -481,9 +332,9 @@ export default function HelpPage() {
               <HelpCircle className="h-8 w-8 text-white" />
             </div>
           </div>
-          <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">Help Center</h1>
+          <h1 className="text-4xl md:text-5xl font-extrabold text-gray-900 mb-4">TrackrAI Help Centre</h1>
           <p className="text-gray-600 text-lg mb-8 max-w-2xl mx-auto">
-            Find answers to common questions about using TrackrAI for your personal finance management.
+            Find answers to common questions about using TrackrAI.
           </p>
 
           {/* Search */}
@@ -692,44 +543,28 @@ export default function HelpPage() {
         </div>
       </section>
 
-      {/* Alternative Contact Section */}
+      {/* Direct contact section */}
       <section className="py-16 bg-gray-50">
         <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
           <h2 className="text-2xl font-bold text-center text-gray-900 mb-8">
-            Other ways to reach us
+            Prefer email?
           </h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            {/* Email Support card */}
-            <Card className="p-6 bg-white border-gray-200 hover:shadow-lg transition-shadow">
-              <div className="flex flex-col items-center text-center mb-5">
-                <div className="inline-flex items-center justify-center w-12 h-12 rounded-xl bg-blue-100 text-blue-600 mb-4">
-                  <Mail className="h-6 w-6" />
-                </div>
-                <h3 className="text-lg font-semibold text-gray-900 mb-1">Email Support</h3>
-                <p className="text-gray-600 text-sm">
-                  Send us an email directly for any inquiries or support needs.
-                </p>
+          <div className="max-w-md mx-auto">
+            <Card className="p-8 bg-white border-gray-200 hover:shadow-lg transition-shadow text-center">
+              <div className="inline-flex items-center justify-center w-14 h-14 rounded-2xl bg-[#635BFF]/10 text-[#635BFF] mb-5">
+                <Mail className="h-7 w-7" />
               </div>
+              <h3 className="text-xl font-semibold text-gray-900 mb-2">Email Support</h3>
+              <p className="text-gray-600 text-sm mb-6">
+                Send us an email and we&apos;ll get back to you within 24 hours.
+              </p>
               <a
                 href="mailto:support@trackrai.io"
-                className="flex items-center justify-center gap-2 w-full py-2.5 rounded-lg border border-gray-200 hover:border-[#635BFF]/40 hover:bg-[#635BFF]/5 text-[#635BFF] text-sm font-medium transition-all"
+                className="inline-flex items-center justify-center gap-2 w-full py-3 rounded-xl bg-[#635BFF] hover:bg-[#5851EA] text-white text-sm font-semibold transition-colors shadow-sm"
               >
+                <Mail className="h-4 w-4" />
                 support@trackrai.io
               </a>
-            </Card>
-
-            {/* Feature Request card — inline form */}
-            <Card className="p-6 bg-white border-gray-200 hover:shadow-lg transition-shadow">
-              <div className="flex flex-col items-center text-center mb-5">
-                <div className="inline-flex items-center justify-center w-12 h-12 rounded-xl bg-green-100 text-green-600 mb-4">
-                  <MessageCircle className="h-6 w-6" />
-                </div>
-                <h3 className="text-lg font-semibold text-gray-900 mb-1">Feature Requests</h3>
-                <p className="text-gray-600 text-sm">
-                  Have an idea? We&apos;d love to hear what would make TrackrAI better for you.
-                </p>
-              </div>
-              <FeatureRequestForm />
             </Card>
           </div>
         </div>

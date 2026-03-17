@@ -4,11 +4,24 @@ import Link from 'next/link'
 import { Button } from '@/components/ui/button'
 import { Menu, X } from 'lucide-react'
 import { useState } from 'react'
+import { usePathname } from 'next/navigation'
 import { SIGN_IN_URL, SIGN_UP_URL } from '@/constants/site'
 import { trackSignupClick, trackSigninClick } from '@/lib/analytics'
 
+const NAV_LINKS = [
+  { href: '/#features', label: 'Features', matchPath: '/' },
+  { href: '/blog',       label: 'Blog',     matchPath: '/blog' },
+  { href: '/help',       label: 'Help',     matchPath: '/help' },
+]
+
 export function LandingNavbar() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
+  const pathname = usePathname()
+
+  const isActive = (matchPath: string) => {
+    if (matchPath === '/') return pathname === '/'
+    return pathname === matchPath || pathname.startsWith(matchPath + '/')
+  }
 
   return (
     <nav className="fixed top-0 z-50 w-full border-b border-gray-200/50 bg-white/70 backdrop-blur-xl">
@@ -23,15 +36,19 @@ export function LandingNavbar() {
 
           {/* Desktop Navigation */}
           <div className="hidden lg:flex lg:items-center lg:space-x-1">
-            <Link href="/#features" className="text-sm text-gray-600 hover:text-gray-900 px-3 py-2 rounded-md hover:bg-gray-50 transition-colors">
-              Features
-            </Link>
-            <Link href="/blog" className="text-sm text-gray-600 hover:text-gray-900 px-3 py-2 rounded-md hover:bg-gray-50 transition-colors">
-              Blog
-            </Link>
-            <Link href="/help" className="text-sm text-gray-600 hover:text-gray-900 px-3 py-2 rounded-md hover:bg-gray-50 transition-colors">
-              Help
-            </Link>
+            {NAV_LINKS.map(({ href, label, matchPath }) => (
+              <Link
+                key={href}
+                href={href}
+                className={`text-sm px-3 py-2 rounded-md transition-colors ${
+                  isActive(matchPath)
+                    ? 'text-[#635BFF] font-medium bg-[#635BFF]/5'
+                    : 'text-gray-600 hover:text-gray-900 hover:bg-gray-50'
+                }`}
+              >
+                {label}
+              </Link>
+            ))}
           </div>
 
           {/* Desktop CTA */}
@@ -64,22 +81,30 @@ export function LandingNavbar() {
         </div>
       </div>
 
-      {/* Mobile menu */}
-      {mobileMenuOpen && (
-        <div className="lg:hidden border-t border-gray-200 bg-white">
+      {/* Mobile menu — smooth slide-down */}
+      <div
+        className="lg:hidden overflow-hidden transition-all duration-300 ease-in-out"
+        style={{ maxHeight: mobileMenuOpen ? 400 : 0, opacity: mobileMenuOpen ? 1 : 0 }}
+      >
+        <div className="border-t border-gray-200 bg-white">
           <div className="space-y-1 px-4 pb-4 pt-2">
-            <div className="flex flex-col space-y-1 mb-3">
-              <Link href="/#features" onClick={() => setMobileMenuOpen(false)} className="px-3 py-2 text-sm text-gray-600 hover:text-gray-900 rounded-md hover:bg-gray-50">
-                Features
-              </Link>
-              <Link href="/blog" onClick={() => setMobileMenuOpen(false)} className="px-3 py-2 text-sm text-gray-600 hover:text-gray-900 rounded-md hover:bg-gray-50">
-                Blog
-              </Link>
-              <Link href="/help" onClick={() => setMobileMenuOpen(false)} className="px-3 py-2 text-sm text-gray-600 hover:text-gray-900 rounded-md hover:bg-gray-50">
-                Help
-              </Link>
+            <div className="flex flex-col space-y-0.5 mb-3">
+              {NAV_LINKS.map(({ href, label, matchPath }) => (
+                <Link
+                  key={href}
+                  href={href}
+                  onClick={() => setMobileMenuOpen(false)}
+                  className={`px-3 py-2.5 text-sm rounded-md transition-colors ${
+                    isActive(matchPath)
+                      ? 'text-[#635BFF] font-medium bg-[#635BFF]/5'
+                      : 'text-gray-600 hover:text-gray-900 hover:bg-gray-50'
+                  }`}
+                >
+                  {label}
+                </Link>
+              ))}
             </div>
-            <div className="flex flex-col space-y-2">
+            <div className="flex flex-col space-y-2 pt-2 border-t border-gray-100">
               <a href={SIGN_IN_URL} onClick={() => { setMobileMenuOpen(false); trackSigninClick('navbar_mobile') }}>
                 <Button variant="outline" className="w-full text-[15px]">
                   Sign in
@@ -93,7 +118,7 @@ export function LandingNavbar() {
             </div>
           </div>
         </div>
-      )}
+      </div>
     </nav>
   )
 }

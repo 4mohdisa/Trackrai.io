@@ -164,3 +164,85 @@
 .animate-fade-up {
   animation: fadeUp 0.5s cubic-bezier(0.16, 1, 0.3, 1) both;
 }
+
+/* ─── Section entrance animations — GPU-composited only ─── */
+@keyframes slideInLeft {
+  from { opacity: 0; transform: translateX(-22px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+@keyframes slideInRight {
+  from { opacity: 0; transform: translateX(22px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+@keyframes slideInBottom {
+  from { opacity: 0; transform: translateY(18px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes scaleIn {
+  from { opacity: 0; transform: scale(0.85); }
+  to   { opacity: 1; transform: scale(1); }
+}
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+@keyframes growBar {
+  from { transform: scaleY(0); }
+  to   { transform: scaleY(1); }
+}
+@keyframes fillProgress {
+  from { transform: scaleX(0); }
+  to   { transform: scaleX(1); }
+}
+@keyframes subtlePulseGlow {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(99, 91, 255, 0); }
+  50%       { box-shadow: 0 0 0 6px rgba(99, 91, 255, 0.18); }
+}
+@keyframes floatDevice {
+  0%, 100% { transform: translateY(0px); }
+  50%       { transform: translateY(-8px); }
+}
+@keyframes particleRight {
+  0%   { transform: translateX(-120%); opacity: 0; }
+  8%   { opacity: 1; }
+  92%  { opacity: 1; }
+  100% { transform: translateX(220%); opacity: 0; }
+}
+@keyframes particleLeft {
+  0%   { transform: translateX(220%); opacity: 0; }
+  8%   { opacity: 1; }
+  92%  { opacity: 1; }
+  100% { transform: translateX(-120%); opacity: 0; }
+}
+@keyframes syncFlash {
+  0%, 100% { background-color: transparent; }
+  40%       { background-color: rgba(99, 91, 255, 0.15); }
+}
+@keyframes bounceLight {
+  0%, 100% { transform: translateY(0); }
+  50%       { transform: translateY(-4px); }
+}
+
+/* Utility classes */
+.animate-slide-in-left   { animation: slideInLeft   0.5s ease-out both; }
+.animate-slide-in-right  { animation: slideInRight  0.5s ease-out both; }
+.animate-slide-in-bottom { animation: slideInBottom 0.5s ease-out both; }
+.animate-scale-in        { animation: scaleIn       0.45s ease-out both; }
+.animate-fade-in         { animation: fadeIn        0.45s ease-out both; }
+.animate-grow-bar        { animation: growBar       0.65s ease-out both; transform-origin: bottom; }
+.animate-fill-progress   { animation: fillProgress  0.65s ease-out both; transform-origin: left; }
+.animate-pulse-glow      { animation: subtlePulseGlow 3s ease-in-out infinite; }
+.animate-float           { animation: floatDevice   4s ease-in-out infinite; }
+.animate-bounce-light    { animation: bounceLight   2s ease-in-out infinite; }
+.particle-right          { animation: particleRight 2.2s ease-in-out infinite; }
+.particle-left           { animation: particleLeft  2.2s ease-in-out infinite; }
+.animate-sync-flash      { animation: syncFlash     0.6s ease-in-out; }
+
+/* ─── Reduced motion: disable all animations ─── */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
