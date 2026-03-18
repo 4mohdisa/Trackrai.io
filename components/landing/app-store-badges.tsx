@@ -19,6 +19,7 @@ export function AppStoreBadges() {
           width={140}
           height={42}
           priority={false}
+          className="h-11 w-auto object-contain"
         />
       </a>
       {/* TODO: update href to real Google Play link when available */}
@@ -29,11 +30,12 @@ export function AppStoreBadges() {
         className="opacity-90 hover:opacity-100 transition-opacity"
       >
         <Image
-          src="/images/google-play-badge.svg"
+          src="/playstore.svg"
           alt="Get it on Google Play"
           width={140}
           height={42}
           priority={false}
+          className="h-11 w-auto object-contain"
         />
       </a>
     </div>

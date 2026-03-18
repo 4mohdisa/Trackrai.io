@@ -2,57 +2,71 @@ export interface Testimonial {
   id: number
   name: string
   role: string
+  location: string
+  initials: string
+  avatar: string
   quote: string
-  photoUrl: string
 }
 
 export const testimonials: Testimonial[] = [
   {
     id: 1,
-    name: 'Sarah Chen',
-    role: 'Product Manager',
+    name: 'Sarah M.',
+    role: 'Freelance Designer',
+    location: 'Melbourne, AU',
+    initials: 'SM',
+    avatar: 'https://api.dicebear.com/7.x/adventurer/svg?seed=SarahM',
     quote:
-      'TrackrAI found $340/month in subscriptions I forgot about. The AI insights are useful, not vanity metrics.',
-    photoUrl: 'https://api.dicebear.com/9.x/notionists/svg?seed=Sarah',
+      'I imported three months of bank statements in under a minute. The category breakdown showed me I was spending twice what I thought on takeaway. One look at the food category changed how I approach my budget.',
   },
   {
     id: 2,
-    name: 'Marcus Johnson',
+    name: 'James K.',
     role: 'Software Engineer',
+    location: 'London, UK',
+    initials: 'JK',
+    avatar: 'https://api.dicebear.com/7.x/adventurer/svg?seed=JamesK',
     quote:
-      'I switched from spreadsheets to TrackrAI and save hours every week. The recurring transaction tracking changed how I manage money.',
-    photoUrl: 'https://api.dicebear.com/9.x/notionists/svg?seed=Marcus',
+      'Setting up my subscriptions in TrackrAI took about ten minutes. Now I see every upcoming payment before each one lands, so there are no surprises at the end of the month.',
   },
   {
     id: 3,
-    name: 'Emily Rodriguez',
-    role: 'Freelance Designer',
+    name: 'Priya R.',
+    role: 'Product Manager',
+    location: 'Singapore',
+    initials: 'PR',
+    avatar: 'https://api.dicebear.com/7.x/adventurer/svg?seed=PriyaR',
     quote:
-      'As a freelancer with irregular income, TrackrAI shows me exactly where every dollar goes. The category breakdowns are clear and actionable.',
-    photoUrl: 'https://api.dicebear.com/9.x/notionists/svg?seed=Emily',
+      'I had about 200 transactions after importing my CSV. TrackrAI assigned categories to nearly all of them automatically. I made a few adjustments and was done in five minutes.',
   },
   {
     id: 4,
-    name: 'David Park',
-    role: 'Startup Founder',
+    name: 'Tom B.',
+    role: 'Small Business Owner',
+    location: 'Sydney, AU',
+    initials: 'TB',
+    avatar: 'https://api.dicebear.com/7.x/adventurer/svg?seed=TomB',
     quote:
-      'Clean, fast, and private. I tried Mint, YNAB, and Copilot. TrackrAI is the only one that stuck. The UI is beautiful.',
-    photoUrl: 'https://api.dicebear.com/9.x/notionists/svg?seed=David',
+      'I assigned all my regular vendors in TrackrAI. Now I see exactly how much I spend with each one across every month. My Amazon spending turned out far higher than I expected.',
   },
   {
     id: 5,
-    name: 'Priya Sharma',
-    role: 'Data Analyst',
+    name: 'Aisha N.',
+    role: 'Marketing Coordinator',
+    location: 'Dubai, UAE',
+    initials: 'AN',
+    avatar: 'https://api.dicebear.com/7.x/adventurer/svg?seed=AishaN',
     quote:
-      'The analytics dashboard is exactly what I needed. I cut my dining expenses by 30% in the first month from the insights alone.',
-    photoUrl: 'https://api.dicebear.com/9.x/notionists/svg?seed=Priya',
+      'I generate a monthly report every time my pay cycle ends. Comparing November to October showed my food spending dropped 18 percent after I started meal planning. The data keeps me accountable.',
   },
   {
     id: 6,
-    name: 'James Wilson',
-    role: 'Marketing Director',
+    name: 'Daniel W.',
+    role: 'Graduate Student',
+    location: 'Toronto, CA',
+    initials: 'DW',
+    avatar: 'https://api.dicebear.com/7.x/adventurer/svg?seed=DanielW',
     quote:
-      'Finally, a finance app that respects my data. No bank connections required, 256-bit encryption, and a clean interface.',
-    photoUrl: 'https://api.dicebear.com/9.x/notionists/svg?seed=James',
+      'I add transactions from my phone right after a purchase. When I check the web dashboard later, everything is already synced. I never lose track of spending across both devices.',
   },
 ]

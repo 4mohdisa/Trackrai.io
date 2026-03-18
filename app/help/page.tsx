@@ -2,9 +2,7 @@
 
 import { useState } from 'react'
 import { Card } from '@/components/ui/card'
-import { Input } from '@/components/ui/input'
 import { Button } from '@/components/ui/button'
-import { Textarea } from '@/components/ui/textarea'
 import {
   Search,
   HelpCircle,
@@ -17,7 +15,6 @@ import {
   ChevronUp,
   Mail,
   BookOpen,
-  Send,
   CheckCircle2,
   AlertCircle,
   Loader2,
@@ -340,12 +337,12 @@ export default function HelpPage() {
           {/* Search */}
           <div className="relative max-w-xl mx-auto">
             <Search className="absolute left-4 top-1/2 -translate-y-1/2 h-5 w-5 text-gray-400" />
-            <Input
+            <input
               type="text"
               placeholder="Search for help..."
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
-              className="pl-12 py-6 text-lg border-gray-300 bg-white focus:border-[#635BFF] focus:ring-[#635BFF] shadow-sm"
+              className="w-full pl-12 pr-4 py-4 text-lg border border-gray-200 rounded-xl bg-white focus:border-[#635BFF] focus:ring-2 focus:ring-[#635BFF]/20 outline-none transition shadow-sm"
             />
           </div>
         </div>
@@ -384,39 +381,38 @@ export default function HelpPage() {
       <section className="py-16 bg-white">
         <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Still need help?</h2>
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Contact Support</h2>
             <p className="text-lg text-gray-600">
-              Send us a message and we&apos;ll get back to you within 24 hours.
+              Send us a message. We respond within 24 hours.
             </p>
           </div>
 
-          <Card className="p-8 border-gray-200 bg-white shadow-lg">
+          <div className="max-w-2xl mx-auto bg-white rounded-2xl shadow-lg p-8">
             {submitStatus === 'success' ? (
-              <div className="flex flex-col items-center justify-center py-10 gap-4 text-center">
-                <div className="inline-flex items-center justify-center w-14 h-14 rounded-full bg-green-100">
-                  <CheckCircle2 className="h-7 w-7 text-green-600" />
+              <div className="flex flex-col items-center justify-center py-12 gap-5 text-center">
+                <div className="inline-flex items-center justify-center w-20 h-20 rounded-full bg-green-100">
+                  <CheckCircle2 className="h-10 w-10 text-green-600" />
                 </div>
                 <div>
-                  <p className="text-xl font-semibold text-gray-900 mb-1">Message sent!</p>
+                  <p className="text-2xl font-bold text-gray-900 mb-2">Your message was sent.</p>
                   <p className="text-gray-500">
-                    We&apos;ll get back to you within 24 hours.
+                    We will get back to you within 24 hours.
                   </p>
                 </div>
                 <button
                   onClick={() => setSubmitStatus('idle')}
-                  className="text-sm text-[#635BFF] hover:text-[#5851EA] font-medium mt-2 transition-colors"
+                  className="mt-2 px-6 py-2.5 rounded-xl border border-gray-200 text-sm font-semibold text-gray-700 hover:bg-gray-50 transition-colors"
                 >
                   Send another message
                 </button>
               </div>
             ) : (
-              <form onSubmit={handleContactSubmit} className="space-y-6">
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                  <div className="space-y-2">
-                    <label htmlFor="name" className="text-sm font-medium text-gray-900">
-                      Name
-                    </label>
-                    <Input
+              <form onSubmit={handleContactSubmit} className="space-y-5">
+                {/* Name + Email row */}
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  <div className="space-y-1.5">
+                    <label htmlFor="name" className="text-sm font-medium text-gray-700">Name</label>
+                    <input
                       id="name"
                       type="text"
                       placeholder="Your name"
@@ -425,58 +421,51 @@ export default function HelpPage() {
                       required
                       maxLength={100}
                       disabled={submitStatus === 'loading'}
-                      className="border-gray-300 bg-white"
+                      className="w-full border border-gray-200 rounded-xl px-4 py-3 text-base text-gray-900 placeholder:text-gray-400 focus:border-[#635BFF] focus:ring-2 focus:ring-[#635BFF]/20 outline-none transition disabled:opacity-50"
                     />
                   </div>
-                  <div className="space-y-2">
-                    <label htmlFor="email" className="text-sm font-medium text-gray-900">
-                      Email
-                    </label>
-                    <Input
+                  <div className="space-y-1.5">
+                    <label htmlFor="email" className="text-sm font-medium text-gray-700">Email</label>
+                    <input
                       id="email"
                       type="email"
-                      placeholder="your.email@example.com"
+                      placeholder="your@email.com"
                       value={contactForm.email}
                       onChange={(e) => setContactForm({ ...contactForm, email: e.target.value })}
                       required
                       disabled={submitStatus === 'loading'}
-                      className="border-gray-300 bg-white"
+                      className="w-full border border-gray-200 rounded-xl px-4 py-3 text-base text-gray-900 placeholder:text-gray-400 focus:border-[#635BFF] focus:ring-2 focus:ring-[#635BFF]/20 outline-none transition disabled:opacity-50"
                     />
                   </div>
                 </div>
 
-                <div className="space-y-2">
-                  <label htmlFor="supportType" className="text-sm font-medium text-gray-900">
-                    Support Type
-                  </label>
-                  <select
-                    id="supportType"
-                    value={contactForm.supportType}
-                    onChange={(e) =>
-                      setContactForm({ ...contactForm, supportType: e.target.value })
-                    }
-                    required
-                    disabled={submitStatus === 'loading'}
-                    className="flex h-9 w-full rounded-lg border border-gray-300 bg-white px-3 py-2 text-sm text-gray-900 transition-colors focus:border-ring focus:ring-3 focus:ring-ring/50 focus:outline-none disabled:cursor-not-allowed disabled:opacity-50"
-                  >
-                    <option value="" disabled>
-                      Select a support type
-                    </option>
-                    <option value="general">General Inquiry</option>
-                    <option value="technical">Technical Issue</option>
-                    <option value="account">Account &amp; Billing</option>
-                    <option value="feature">Feature Request</option>
-                    <option value="bug">Bug Report</option>
-                    <option value="security">Security Concern</option>
-                    <option value="other">Other</option>
-                  </select>
+                {/* Support type */}
+                <div className="space-y-1.5">
+                  <label htmlFor="supportType" className="text-sm font-medium text-gray-700">Support Type</label>
+                  <div className="relative">
+                    <select
+                      id="supportType"
+                      value={contactForm.supportType}
+                      onChange={(e) => setContactForm({ ...contactForm, supportType: e.target.value })}
+                      required
+                      disabled={submitStatus === 'loading'}
+                      className="w-full appearance-none border border-gray-200 rounded-xl px-4 py-3 text-base text-gray-900 bg-white focus:border-[#635BFF] focus:ring-2 focus:ring-[#635BFF]/20 outline-none transition disabled:opacity-50 pr-10"
+                    >
+                      <option value="" disabled>Select a support type</option>
+                      <option value="general">General Question</option>
+                      <option value="bug">Bug Report</option>
+                      <option value="account">Account Issue</option>
+                      <option value="billing">Billing Question</option>
+                      <option value="other">Other</option>
+                    </select>
+                    <ChevronDown className="absolute right-3 top-1/2 -translate-y-1/2 h-4 w-4 text-gray-400 pointer-events-none" />
+                  </div>
                 </div>
 
-                <div className="space-y-2">
-                  <label htmlFor="subject" className="text-sm font-medium text-gray-900">
-                    Subject
-                  </label>
-                  <Input
+                {/* Subject */}
+                <div className="space-y-1.5">
+                  <label htmlFor="subject" className="text-sm font-medium text-gray-700">Subject</label>
+                  <input
                     id="subject"
                     type="text"
                     placeholder="Brief description of your issue"
@@ -485,61 +474,51 @@ export default function HelpPage() {
                     required
                     maxLength={200}
                     disabled={submitStatus === 'loading'}
-                    className="border-gray-300 bg-white"
+                    className="w-full border border-gray-200 rounded-xl px-4 py-3 text-base text-gray-900 placeholder:text-gray-400 focus:border-[#635BFF] focus:ring-2 focus:ring-[#635BFF]/20 outline-none transition disabled:opacity-50"
                   />
                 </div>
 
-                <div className="space-y-2">
-                  <label htmlFor="message" className="text-sm font-medium text-gray-900">
-                    Message
-                  </label>
-                  <Textarea
+                {/* Message */}
+                <div className="space-y-1.5">
+                  <label htmlFor="message" className="text-sm font-medium text-gray-700">Message</label>
+                  <textarea
                     id="message"
-                    placeholder="Please describe your issue or question in detail..."
+                    placeholder="Describe your issue or question in detail..."
                     value={contactForm.message}
-                    onChange={(e) =>
-                      setContactForm({ ...contactForm, message: e.target.value })
-                    }
+                    onChange={(e) => setContactForm({ ...contactForm, message: e.target.value })}
                     required
                     rows={6}
                     maxLength={5000}
                     disabled={submitStatus === 'loading'}
-                    className="border-gray-300 bg-white resize-none"
+                    className="w-full border border-gray-200 rounded-xl px-4 py-3 text-base text-gray-900 placeholder:text-gray-400 focus:border-[#635BFF] focus:ring-2 focus:ring-[#635BFF]/20 outline-none transition resize-none disabled:opacity-50 min-h-[140px]"
                   />
-                  <p className="text-xs text-gray-400 text-right">
-                    {contactForm.message.length}/5000
-                  </p>
+                  <p className="text-xs text-gray-400 text-right">{contactForm.message.length}/5000</p>
                 </div>
 
                 {(submitError || submitStatus === 'error') && (
-                  <div className="flex items-start gap-2 rounded-lg bg-red-50 border border-red-200 px-4 py-3">
+                  <div className="flex items-start gap-2 rounded-xl bg-red-50 border border-red-200 px-4 py-3">
                     <AlertCircle className="h-4 w-4 text-red-500 mt-0.5 shrink-0" />
-                    <p className="text-sm text-red-700">
-                      {submitError || 'Something went wrong. Please try again.'}
-                    </p>
+                    <p className="text-sm text-red-700">{submitError || 'Something went wrong. Please try again.'}</p>
                   </div>
                 )}
 
-                <Button
+                <button
                   type="submit"
                   disabled={submitStatus === 'loading'}
-                  className="w-full bg-[#635BFF] hover:bg-[#5851EA] text-white shadow-lg disabled:opacity-60"
+                  className="w-full py-3 px-8 rounded-xl bg-[#635BFF] hover:bg-[#4F46E5] text-white text-base font-semibold transition-colors disabled:opacity-60 flex items-center justify-center gap-2"
                 >
                   {submitStatus === 'loading' ? (
                     <>
-                      <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+                      <Loader2 className="h-4 w-4 animate-spin" />
                       Sending...
                     </>
                   ) : (
-                    <>
-                      <Send className="mr-2 h-4 w-4" />
-                      Send Message
-                    </>
+                    'Send Message'
                   )}
-                </Button>
+                </button>
               </form>
             )}
-          </Card>
+          </div>
         </div>
       </section>
 

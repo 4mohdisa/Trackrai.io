@@ -1,7 +1,6 @@
 import type { Metadata } from 'next'
 import Image from 'next/image'
 import { Button } from '@/components/ui/button'
-import { Card } from '@/components/ui/card'
 import { testimonials } from '@/constants/testimonials'
 import { SITE_URL, SITE_NAME } from '@/constants/site'
 import { SignupCTA } from '@/components/landing/signup-cta'
@@ -15,6 +14,10 @@ import { CategoryGrid } from '@/components/landing/category-grid'
 import { MerchantsCard } from '@/components/landing/merchants-card'
 import { ReportsCard } from '@/components/landing/reports-card'
 import { SyncSection } from '@/components/landing/sync-section'
+import { HowItWorksSection } from '@/components/landing/how-it-works'
+import { StatsSection } from '@/components/landing/stats-section'
+import { SecurityTrustSection } from '@/components/landing/security-trust'
+import { ComparisonTable } from '@/components/landing/comparison-table'
 import {
   BarChart3,
   Zap,
@@ -22,6 +25,7 @@ import {
   Repeat,
   Sparkles,
   CheckCircle2,
+  Star,
   Store,
   FileBarChart2,
   Smartphone,
@@ -81,7 +85,7 @@ export default function Home() {
 
             <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-extrabold tracking-tight text-gray-900 mb-8">
               Track your money{' '}
-              <span className="bg-clip-text text-transparent bg-gradient-to-r from-[#635BFF] to-[#00D4FF]">
+              <span className="bg-clip-text text-transparent bg-gradient-to-r from-[#635BFF] to-[#8B5CF6]">
                 with AI
               </span>
             </h1>
@@ -107,62 +111,45 @@ export default function Home() {
 
             <div className="flex flex-col sm:flex-row justify-center items-center gap-4 mb-4">
               <SignupCTA source="hero">
-                <Button size="lg" className="bg-gray-900 hover:bg-gray-800 text-white text-base px-10 py-7 rounded-full shadow-lg hover:shadow-xl transition-all font-semibold">
+                <Button size="lg" className="bg-gray-900 hover:bg-gray-800 text-white text-base px-10 py-3.5 rounded-xl shadow-lg hover:shadow-xl transition-all font-semibold">
                   Start for Free
                 </Button>
               </SignupCTA>
-              <a href="#features">
-                <Button size="lg" variant="outline" className="text-gray-700 border-2 border-gray-300 text-base px-10 py-7 rounded-full hover:bg-gray-50 transition-all font-semibold">
+              <a href="#how-it-works">
+                <Button size="lg" variant="outline" className="text-gray-700 border-2 border-gray-300 text-base px-10 py-3.5 rounded-xl hover:bg-gray-50 transition-all font-semibold">
                   See How It Works
                 </Button>
               </a>
             </div>
 
-            <p className="text-sm text-gray-500 mb-16">
-              No credit card required. Free to get started.
+            {/* Trust line */}
+            <p className="text-sm text-gray-400 mb-4">
+              No credit card required. Free to use. Cancel anytime.
             </p>
 
-            {/* Dashboard Preview — animated */}
-            <HeroDashboard />
-          </div>
-        </div>
-      </section>
-
-      {/* Trust Signals */}
-      <section className="py-16 bg-white border-y border-gray-100">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-10">
-            {[
-              { value: '7+', label: 'Core Features' },
-              { value: '<2 min', label: 'Setup Time' },
-              { value: '256-bit', label: 'Encryption' },
-              { value: '99.9%', label: 'Uptime Goal' },
-            ].map((stat) => (
-              <div key={stat.label} className="text-center px-4 py-2">
-                <div className="text-3xl md:text-4xl font-bold text-gray-900 mb-1.5 tracking-tight">{stat.value}</div>
-                <div className="text-xs md:text-sm text-gray-500 font-medium uppercase tracking-wide">{stat.label}</div>
+            {/* Social proof stars */}
+            <div className="flex items-center justify-center gap-2 text-sm text-gray-500 mb-16">
+              <div className="flex gap-0.5">
+                {[1,2,3,4,5].map((s) => (
+                  <Star key={s} className="h-4 w-4 fill-yellow-400 text-yellow-400" />
+                ))}
               </div>
-            ))}
+              <span>Trusted by 500+ users in early access</span>
+            </div>
+
+            {/* Dashboard Preview — animated with subtle float */}
+            <div className="animate-float">
+              <HeroDashboard />
+            </div>
           </div>
         </div>
       </section>
 
-      {/* Social Proof Banner */}
-      <section className="py-12 bg-gradient-to-r from-[#635BFF] to-indigo-600">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="flex flex-col md:flex-row items-center justify-between gap-6">
-            <div className="text-center md:text-left">
-              <p className="text-white text-lg font-semibold">Ready in under 2 minutes. Free to use.</p>
-              <p className="text-white/75 text-sm mt-1">No bank connection needed. Import your CSV and TrackrAI handles the rest.</p>
-            </div>
-            <SignupCTA source="social_proof_banner">
-              <Button size="lg" className="bg-white text-[#635BFF] hover:bg-gray-50 px-8 py-6 rounded-full shadow-lg font-semibold transition-all whitespace-nowrap">
-                Get Started Free
-              </Button>
-            </SignupCTA>
-          </div>
-        </div>
-      </section>
+      {/* How It Works */}
+      <HowItWorksSection />
+
+      {/* Stats */}
+      <StatsSection />
 
       {/* Features Section */}
       <section id="features" data-track-section="features" className="py-32 bg-gray-50">
@@ -245,6 +232,9 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      {/* Security Trust */}
+      <SecurityTrustSection />
 
       {/* Mobile App Section 1 */}
       <section id="mobile_app_1" data-track-section="mobile_app_1" className="py-28 bg-white">
@@ -478,70 +468,60 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Comparison Table */}
+      <ComparisonTable />
+
       {/* Testimonials Section */}
-      <section id="testimonials" data-track-section="testimonials" className="py-28 bg-gray-50">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <div className="inline-block px-4 py-2 bg-purple-100 text-[#635BFF] rounded-full text-sm font-semibold mb-6">
-              WHAT PEOPLE ARE SAYING
+      <section id="testimonials" data-track-section="testimonials" className="py-24 md:py-32 bg-[#F8F9FF]">
+        <div className="mx-auto max-w-7xl px-6">
+          {/* Rating header */}
+          <div className="text-center mb-14">
+            <div className="flex justify-center gap-1 mb-3">
+              {[1,2,3,4,5].map((s) => (
+                <Star key={s} className="h-6 w-6 fill-yellow-400 text-yellow-400" />
+              ))}
             </div>
-            <h2 className="text-4xl md:text-5xl font-extrabold text-gray-900 mb-4">
-              Loved by people who take their finances seriously
+            <p className="text-4xl font-extrabold text-gray-900 mb-1">4.9<span className="text-2xl text-gray-400">/5</span></p>
+            <p className="text-sm text-gray-500">From 500+ early access users</p>
+            <h2 className="text-4xl md:text-5xl font-extrabold tracking-tight text-gray-900 mt-8 mb-4">
+              What people are saying
             </h2>
-            <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-              Real feedback from people using TrackrAI to stay on top of their money
-            </p>
           </div>
 
-          {/* Testimonials - Infinite Scroll */}
-          <div className="relative overflow-x-hidden py-4">
-            {/* Fade edges */}
-            <div className="absolute left-0 top-0 bottom-0 w-24 bg-gradient-to-r from-gray-50 to-transparent z-10 pointer-events-none" />
-            <div className="absolute right-0 top-0 bottom-0 w-24 bg-gradient-to-l from-gray-50 to-transparent z-10 pointer-events-none" />
-
-            <div className="flex gap-5 animate-scroll">
-              {/* First set */}
-              {testimonials.map((testimonial) => (
-                <Card key={testimonial.id} className="flex-shrink-0 w-80 p-6 bg-white border-gray-200 shadow-sm hover:shadow-md transition-shadow">
-                  <p className="text-[#635BFF] text-3xl font-serif leading-none mb-3 select-none">&ldquo;</p>
-                  <p className="text-gray-700 text-sm leading-relaxed mb-5">
-                    {testimonial.quote}
-                  </p>
-                  <div className="flex items-center gap-3 pt-4 border-t border-gray-100">
-                    <div className="relative w-9 h-9 rounded-full overflow-hidden ring-2 ring-[#635BFF]/20 flex-shrink-0">
-                      <Image
-                        src={testimonial.photoUrl}
-                        alt={testimonial.name}
-                        fill
-                        className="object-cover"
-                      />
-                    </div>
-                    <p className="font-semibold text-gray-900 text-sm">{testimonial.name}</p>
+          {/* Grid */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {testimonials.map((t) => (
+              <div
+                key={t.id}
+                className="bg-white rounded-2xl border border-gray-100 shadow-sm hover:shadow-md transition-shadow p-6 flex flex-col"
+              >
+                {/* Stars */}
+                <div className="flex gap-0.5 mb-4">
+                  {[1,2,3,4,5].map((s) => (
+                    <Star key={s} className="h-4 w-4 fill-yellow-400 text-yellow-400" />
+                  ))}
+                </div>
+                {/* Quote */}
+                <p className="text-gray-700 text-base leading-relaxed italic flex-1 mb-5">
+                  &ldquo;{t.quote}&rdquo;
+                </p>
+                {/* Person */}
+                <div className="flex items-center gap-3 pt-4 border-t border-gray-100">
+                  <Image
+                    src={t.avatar}
+                    alt={t.name}
+                    width={48}
+                    height={48}
+                    unoptimized
+                    className="w-12 h-12 rounded-full object-cover shrink-0 bg-gray-50 ring-1 ring-gray-200 grayscale"
+                  />
+                  <div>
+                    <p className="font-semibold text-gray-900 text-sm">{t.name}</p>
+                    <p className="text-sm text-gray-500">{t.role} · {t.location}</p>
                   </div>
-                </Card>
-              ))}
-
-              {/* Duplicate set for seamless loop */}
-              {testimonials.map((testimonial) => (
-                <Card key={`duplicate-${testimonial.id}`} className="flex-shrink-0 w-80 p-6 bg-white border-gray-200 shadow-sm hover:shadow-md transition-shadow">
-                  <p className="text-[#635BFF] text-3xl font-serif leading-none mb-3 select-none">&ldquo;</p>
-                  <p className="text-gray-700 text-sm leading-relaxed mb-5">
-                    {testimonial.quote}
-                  </p>
-                  <div className="flex items-center gap-3 pt-4 border-t border-gray-100">
-                    <div className="relative w-9 h-9 rounded-full overflow-hidden ring-2 ring-[#635BFF]/20 flex-shrink-0">
-                      <Image
-                        src={testimonial.photoUrl}
-                        alt={testimonial.name}
-                        fill
-                        className="object-cover"
-                      />
-                    </div>
-                    <p className="font-semibold text-gray-900 text-sm">{testimonial.name}</p>
-                  </div>
-                </Card>
-              ))}
-            </div>
+                </div>
+              </div>
+            ))}
           </div>
         </div>
       </section>
@@ -550,29 +530,44 @@ export default function Home() {
       <SyncSection />
 
       {/* CTA Section */}
-      <section id="final_cta" data-track-section="final_cta" className="py-28 bg-gradient-to-br from-gray-900 via-gray-900 to-[#635BFF] relative overflow-hidden">
-        <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PHBhdHRlcm4gaWQ9ImdyaWQiIHdpZHRoPSI2MCIgaGVpZ2h0PSI2MCIgcGF0dGVyblVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+PHBhdGggZD0iTSAxMCAwIEwgMCAwIDAgMTAiIGZpbGw9Im5vbmUiIHN0cm9rZT0id2hpdGUiIHN0cm9rZS1vcGFjaXR5PSIwLjA1IiBzdHJva2Utd2lkdGg9IjEiLz48L3BhdHRlcm4+PC9kZWZzPjxyZWN0IHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbGw9InVybCgjZ3JpZCkiLz48L3N2Zz4=')] opacity-30" />
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-center relative z-10">
-          <h2 className="text-4xl sm:text-5xl md:text-6xl font-extrabold text-white mb-6">
-            Take control of your finances
+      <section id="final_cta" data-track-section="final_cta" className="py-28 md:py-36 relative overflow-hidden" style={{ background: 'linear-gradient(135deg, #635BFF 0%, #4F46E5 100%)' }}>
+        {/* Ambient blobs */}
+        <div className="absolute top-0 left-1/4 w-96 h-96 bg-white/5 rounded-full blur-3xl pointer-events-none" />
+        <div className="absolute bottom-0 right-1/4 w-80 h-80 bg-indigo-300/10 rounded-full blur-3xl pointer-events-none" />
+
+        <div className="mx-auto max-w-4xl px-6 text-center relative z-10">
+          <h2 className="text-4xl sm:text-5xl md:text-6xl font-extrabold tracking-tight text-white mb-6">
+            Start tracking your money today
           </h2>
-          <p className="text-lg sm:text-xl md:text-2xl text-white/90 mb-4 max-w-3xl mx-auto font-medium">
-            Stop guessing where your money goes. <span className="text-[#00D4FF]">Start tracking today.</span>
+          <p className="text-xl text-white/80 mb-10 max-w-2xl mx-auto leading-relaxed">
+            Create your free account in seconds. Import your bank statement and see exactly where your money goes.
           </p>
-          <p className="text-base sm:text-lg text-white/70 mb-12 max-w-2xl mx-auto">
-            TrackrAI helps you spot forgotten subscriptions, track merchant spending, review clear monthly summaries, and make better financial decisions. All in one clean app.
-          </p>
-          <div className="flex justify-center mb-8">
+
+          <div className="flex justify-center mb-5">
             <SignupCTA source="cta_section">
-              <Button size="lg" className="bg-white text-gray-900 hover:bg-gray-100 text-base sm:text-lg px-12 py-8 rounded-full shadow-2xl font-bold hover:scale-105 transition-all">
+              <Button size="lg" className="bg-white text-gray-900 hover:bg-gray-50 text-base px-12 py-4 rounded-xl shadow-2xl font-bold hover:scale-105 transition-all">
                 Get Started Free
               </Button>
             </SignupCTA>
           </div>
 
-          <p className="text-sm text-white/80 font-medium">
-            Free to use · No credit card required · No bank connection needed
+          <p className="text-sm text-white/60 mb-8">
+            No credit card required. Free to use.
           </p>
+
+          {/* Mini feature row */}
+          <div className="flex flex-wrap justify-center gap-x-8 gap-y-3">
+            {[
+              'AI categorisation included',
+              'Mobile app included',
+              'CSV import included',
+            ].map((item) => (
+              <div key={item} className="flex items-center gap-2 text-sm text-white/80">
+                <CheckCircle2 className="h-4 w-4 text-white/60 shrink-0" />
+                {item}
+              </div>
+            ))}
+          </div>
         </div>
       </section>
 

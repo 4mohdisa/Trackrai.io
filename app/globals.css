@@ -218,10 +218,37 @@
   0%, 100% { background-color: transparent; }
   40%       { background-color: rgba(99, 91, 255, 0.15); }
 }
+/* Sync section beam animations — replaces particle dots */
+@keyframes beamRight {
+  0%   { background-position: -200% center; }
+  100% { background-position: 200% center; }
+}
+@keyframes beamLeft {
+  0%   { background-position: 200% center; }
+  100% { background-position: -200% center; }
+}
+@keyframes syncPulseRing {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(99,91,255,0.3); }
+  50%       { box-shadow: 0 0 0 8px rgba(99,91,255,0); }
+}
 @keyframes bounceLight {
   0%, 100% { transform: translateY(0); }
   50%       { transform: translateY(-4px); }
 }
+
+/* How It Works entrance animations */
+.hiw-slide-left  { opacity: 0; transform: translateX(-30px); transition: opacity 0.5s ease-out, transform 0.5s ease-out; }
+.hiw-slide-up    { opacity: 0; transform: translateY(20px);  transition: opacity 0.5s ease-out, transform 0.5s ease-out; }
+.hiw-slide-right { opacity: 0; transform: translateX(30px);  transition: opacity 0.5s ease-out, transform 0.5s ease-out; }
+.hiw-visible     { opacity: 1 !important; transform: none !important; }
+
+@keyframes hiwIconBounce {
+  0%   { transform: scale(1); }
+  40%  { transform: scale(1.15); }
+  70%  { transform: scale(0.95); }
+  100% { transform: scale(1); }
+}
+.hiw-icon-bounce { animation: hiwIconBounce 0.4s ease-out both; }
 
 /* Utility classes */
 .animate-slide-in-left   { animation: slideInLeft   0.5s ease-out both; }
@@ -237,6 +264,19 @@
 .particle-right          { animation: particleRight 2.2s ease-in-out infinite; }
 .particle-left           { animation: particleLeft  2.2s ease-in-out infinite; }
 .animate-sync-flash      { animation: syncFlash     0.6s ease-in-out; }
+
+/* Sync beam classes */
+.sync-beam-right {
+  background: linear-gradient(90deg, transparent 0%, rgba(99,91,255,0.8) 40%, #a78bfa 50%, rgba(99,91,255,0.8) 60%, transparent 100%);
+  background-size: 200% 100%;
+  animation: beamRight 1.8s ease-in-out infinite;
+}
+.sync-beam-left {
+  background: linear-gradient(90deg, transparent 0%, rgba(129,140,248,0.8) 40%, #818cf8 50%, rgba(129,140,248,0.8) 60%, transparent 100%);
+  background-size: 200% 100%;
+  animation: beamLeft 1.8s ease-in-out infinite;
+  animation-delay: 0.4s;
+}
 
 /* ─── Reduced motion: disable all animations ─── */
 @media (prefers-reduced-motion: reduce) {

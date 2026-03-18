@@ -156,7 +156,7 @@ export function SyncSection() {
             </div>
           </div>
 
-          {/* MIDDLE — Sync animation */}
+          {/* MIDDLE — Sync beam animation */}
           <div
             className="flex flex-col items-center justify-center gap-4"
             style={{
@@ -164,22 +164,27 @@ export function SyncSection() {
               transition: 'opacity 0.6s ease 0.4s',
             }}
           >
-            {/* Particle track right */}
-            <div className="relative w-full h-8 flex items-center">
-              <div className="absolute inset-y-1/2 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[#635BFF]/40 to-transparent" />
-              {enterDone && [0, 0.8, 1.6].map((delay, i) => (
-                <div
-                  key={i}
-                  className="absolute w-2 h-2 rounded-full bg-[#635BFF] particle-right"
-                  style={{ animationDelay: `${delay}s`, top: '50%', transform: 'translateY(-50%)' }}
-                />
-              ))}
-              <span className="ml-auto text-[9px] text-[#635BFF]/80 font-medium pr-1">→</span>
+            {/* Beam track → (web to phone) */}
+            <div className="relative w-full h-5 flex items-center">
+              {/* Base line */}
+              <div className="absolute inset-0 flex items-center">
+                <div className="w-full h-px bg-[#635BFF]/20 rounded-full" />
+              </div>
+              {/* Flowing beam */}
+              {enterDone && (
+                <div className="absolute inset-0 flex items-center overflow-hidden rounded-full">
+                  <div className="sync-beam-right w-full h-0.5" />
+                </div>
+              )}
+              <span className="relative ml-auto text-[9px] text-[#635BFF]/70 font-bold pr-1 shrink-0">→</span>
             </div>
 
             {/* Center database icon */}
             <div className="relative flex flex-col items-center">
-              <div className="w-14 h-14 rounded-2xl bg-[#635BFF]/20 border border-[#635BFF]/40 flex items-center justify-center backdrop-blur-sm shadow-lg shadow-[#635BFF]/20">
+              <div
+                className="w-14 h-14 rounded-2xl bg-[#635BFF]/20 border border-[#635BFF]/40 flex items-center justify-center backdrop-blur-sm shadow-lg shadow-[#635BFF]/20"
+                style={{ animation: enterDone ? 'syncPulseRing 2s ease-in-out infinite' : 'none' }}
+              >
                 <Database className="h-7 w-7 text-[#635BFF]" />
               </div>
               <p className="text-[10px] text-[#635BFF]/80 font-semibold mt-1.5 text-center leading-tight">
@@ -187,17 +192,19 @@ export function SyncSection() {
               </p>
             </div>
 
-            {/* Particle track left */}
-            <div className="relative w-full h-8 flex items-center">
-              <div className="absolute inset-y-1/2 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[#635BFF]/40 to-transparent" />
-              {enterDone && [0.4, 1.2, 2.0].map((delay, i) => (
-                <div
-                  key={i}
-                  className="absolute w-2 h-2 rounded-full bg-indigo-400 particle-left"
-                  style={{ animationDelay: `${delay}s`, top: '50%', transform: 'translateY(-50%)' }}
-                />
-              ))}
-              <span className="text-[9px] text-[#635BFF]/80 font-medium pl-1">←</span>
+            {/* Beam track ← (phone to web) */}
+            <div className="relative w-full h-5 flex items-center">
+              {/* Base line */}
+              <div className="absolute inset-0 flex items-center">
+                <div className="w-full h-px bg-indigo-400/20 rounded-full" />
+              </div>
+              {/* Flowing beam */}
+              {enterDone && (
+                <div className="absolute inset-0 flex items-center overflow-hidden rounded-full">
+                  <div className="sync-beam-left w-full h-0.5" />
+                </div>
+              )}
+              <span className="relative text-[9px] text-[#635BFF]/70 font-bold pl-1 shrink-0">←</span>
             </div>
           </div>
 
@@ -322,7 +329,7 @@ export function SyncSection() {
             aria-label="Download on the App Store"
             className="opacity-90 hover:opacity-100 transition-opacity"
           >
-            <Image src="/images/app-store-badge.svg" alt="Download on the App Store" width={140} height={44} />
+            <Image src="/images/app-store-badge.svg" alt="Download on the App Store" width={140} height={44} className="h-11 w-auto object-contain" />
           </a>
           <a
             href="#"
@@ -330,7 +337,7 @@ export function SyncSection() {
             aria-label="Get it on Google Play"
             className="opacity-90 hover:opacity-100 transition-opacity"
           >
-            <Image src="/images/google-play-badge.svg" alt="Get it on Google Play" width={140} height={44} />
+            <Image src="/playstore.svg" alt="Get it on Google Play" width={140} height={44} className="h-11 w-auto object-contain" />
           </a>
           <Link
             href="https://app.trackrai.io"
