@@ -75,12 +75,12 @@ export default async function Image() {
               width: 64,
               height: 64,
               borderRadius: 18,
-              background: 'linear-gradient(135deg, #635BFF 0%, #4f46e5 100%)',
+              background: 'linear-gradient(135deg, #295EFF 0%, #658BFF 100%)',
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'center',
               marginBottom: 28,
-              boxShadow: '0 0 40px rgba(99,91,255,0.45)',
+              boxShadow: '0 0 40px rgba(41,94,255,0.45)',
             }}
           >
             <span style={{ color: '#fff', fontSize: 32, fontWeight: 800 }}>T</span>

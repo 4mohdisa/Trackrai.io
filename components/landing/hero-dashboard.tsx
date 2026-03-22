@@ -35,7 +35,7 @@ const BARS = [
 ]
 
 const CATEGORIES = [
-  { label: 'Food & Dining', pct: 34, amount: '$680', color: '#635BFF' },
+  { label: 'Food & Dining', pct: 34, amount: '$680', color: '#295EFF' },
   { label: 'Shopping',      pct: 23, amount: '$459', color: '#f97316' },
   { label: 'Transport',     pct: 19, amount: '$380', color: '#3b82f6' },
   { label: 'Other',         pct: 24, amount: '$473', color: '#9ca3af' },
@@ -81,7 +81,7 @@ export function HeroDashboard() {
 
   return (
     <div ref={containerRef} className="relative mx-auto max-w-5xl">
-      <div className="absolute -inset-4 bg-gradient-to-r from-[#635BFF]/20 to-[#00D4FF]/20 rounded-3xl blur-3xl" />
+      <div className="absolute -inset-4 bg-gradient-to-r from-brand-primary/20 to-brand-secondary/20 rounded-3xl blur-3xl" />
       <div className="relative rounded-2xl border border-gray-200 bg-white shadow-2xl overflow-hidden">
 
         {/* Browser chrome */}
@@ -146,7 +146,7 @@ export function HeroDashboard() {
                       className="flex-1 rounded-t"
                       style={{
                         height: `${h}%`,
-                        background: 'linear-gradient(to top, #635BFF, rgba(99,91,255,0.5))',
+                        background: 'linear-gradient(to top, #295EFF, rgba(41,94,255,0.5))',
                         transform: started ? 'scaleY(1)' : 'scaleY(0)',
                         transformOrigin: 'bottom',
                         transition: `transform 0.65s cubic-bezier(0.34,1.3,0.64,1) ${i * 75}ms`,

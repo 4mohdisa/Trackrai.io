@@ -71,21 +71,21 @@ export default function Home() {
       {/* Hero Section */}
       <section id="hero" data-track-section="hero" className="relative overflow-hidden bg-gradient-to-b from-white via-blue-50/30 to-white pt-32 pb-24">
         <div className="absolute inset-0 -z-10">
-          <div className="absolute top-0 left-1/4 w-96 h-96 bg-blue-400/20 rounded-full mix-blend-multiply blur-3xl opacity-70" />
-          <div className="absolute top-0 right-1/4 w-96 h-96 bg-purple-400/20 rounded-full mix-blend-multiply blur-3xl opacity-70" />
-          <div className="absolute -bottom-32 left-1/3 w-96 h-96 bg-indigo-400/20 rounded-full mix-blend-multiply blur-3xl opacity-70" />
+          <div className="absolute top-0 left-1/4 w-96 h-96 bg-brand-primary/15 rounded-full mix-blend-multiply blur-3xl opacity-70" />
+          <div className="absolute top-0 right-1/4 w-96 h-96 bg-brand-secondary/15 rounded-full mix-blend-multiply blur-3xl opacity-70" />
+          <div className="absolute -bottom-32 left-1/3 w-96 h-96 bg-brand-primary/15 rounded-full mix-blend-multiply blur-3xl opacity-70" />
         </div>
 
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="mx-auto max-w-4xl text-center">
             <div className="inline-flex items-center rounded-full border border-gray-200 bg-white/80 px-4 py-1.5 text-sm text-gray-700 shadow-sm backdrop-blur-sm mb-8">
-              <Sparkles className="mr-2 h-4 w-4 text-[#635BFF]" />
+              <Sparkles className="mr-2 h-4 w-4 text-brand-primary" />
               AI-Powered Personal Finance Tracker
             </div>
 
             <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-extrabold tracking-tight text-gray-900 mb-8">
               Track your money{' '}
-              <span className="bg-clip-text text-transparent bg-gradient-to-r from-[#635BFF] to-[#8B5CF6]">
+              <span className="bg-clip-text text-transparent bg-gradient-to-r from-brand-primary to-brand-secondary">
                 with AI
               </span>
             </h1>
@@ -155,7 +155,7 @@ export default function Home() {
       <section id="features" data-track-section="features" className="py-32 bg-gray-50">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-20">
-            <div className="inline-block px-4 py-2 bg-[#635BFF]/10 text-[#635BFF] rounded-full text-sm font-semibold mb-6">
+            <div className="section-label mb-6">
               FEATURES
             </div>
             <h2 className="text-5xl md:text-6xl font-extrabold text-gray-900 mb-6">
@@ -170,8 +170,8 @@ export default function Home() {
             {[
               {
                 icon: <Sparkles className="h-6 w-6" />,
-                color: 'from-[#635BFF] to-indigo-600',
-                border: 'hover:border-[#635BFF]/40',
+                color: 'from-brand-primary to-brand-secondary',
+                border: 'hover:border-brand-primary/40',
                 title: 'AI Categorisation',
                 description:
                   'Add a transaction or import a CSV and TrackrAI assigns a category automatically. The AI reads the transaction name and matches it to one of your categories. You adjust any assignment at any time.',
@@ -186,8 +186,8 @@ export default function Home() {
               },
               {
                 icon: <Store className="h-6 w-6" />,
-                color: 'from-indigo-500 to-violet-600',
-                border: 'hover:border-indigo-300',
+                color: 'from-brand-primary to-brand-secondary',
+                border: 'hover:border-brand-primary/30',
                 title: 'Merchant Tracking',
                 description:
                   'Every transaction links to a merchant. You see each merchant\'s full transaction history and total spending in one place. Assign merchants to transactions and your spending data becomes easier to read.',
@@ -242,8 +242,8 @@ export default function Home() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             {/* Text */}
             <div>
-              <div className="inline-flex items-center rounded-full border border-[#635BFF]/20 bg-[#635BFF]/5 px-4 py-1.5 text-sm text-[#635BFF] font-semibold mb-6">
-                <Smartphone className="mr-2 h-4 w-4" />
+              <div className="section-label mb-6">
+                <Smartphone className="h-4 w-4" />
                 Mobile App
               </div>
               <h2 className="text-4xl md:text-5xl font-extrabold text-gray-900 mb-6">
@@ -260,7 +260,7 @@ export default function Home() {
                   'See upcoming recurring payments before they hit',
                 ].map((point) => (
                   <li key={point} className="flex items-start gap-3">
-                    <CheckCircle2 className="h-5 w-5 text-[#635BFF] shrink-0 mt-0.5" />
+                    <CheckCircle2 className="h-5 w-5 text-brand-primary shrink-0 mt-0.5" />
                     <span className="text-gray-700">{point}</span>
                   </li>
                 ))}
@@ -395,8 +395,8 @@ export default function Home() {
               <MerchantsCard />
             </div>
             <div className="order-1 lg:order-2">
-              <div className="inline-flex items-center rounded-full border border-indigo-200 bg-indigo-50 px-4 py-1.5 text-sm text-indigo-700 mb-6">
-                <Store className="mr-2 h-4 w-4" />
+              <div className="section-label mb-6">
+                <Store className="h-4 w-4" />
                 Merchants
               </div>
               <h2 className="text-4xl md:text-5xl font-extrabold text-gray-900 mb-6">
@@ -472,7 +472,7 @@ export default function Home() {
       <ComparisonTable />
 
       {/* Testimonials Section */}
-      <section id="testimonials" data-track-section="testimonials" className="py-24 md:py-32 bg-[#F8F9FF]">
+      <section id="testimonials" data-track-section="testimonials" className="py-24 md:py-32 bg-[#F8FAFF]">
         <div className="mx-auto max-w-7xl px-6">
           {/* Rating header */}
           <div className="text-center mb-14">
@@ -530,10 +530,10 @@ export default function Home() {
       <SyncSection />
 
       {/* CTA Section */}
-      <section id="final_cta" data-track-section="final_cta" className="py-28 md:py-36 relative overflow-hidden" style={{ background: 'linear-gradient(135deg, #635BFF 0%, #4F46E5 100%)' }}>
+      <section id="final_cta" data-track-section="final_cta" className="py-28 md:py-36 relative overflow-hidden" style={{ background: 'linear-gradient(135deg, #295EFF 0%, #658BFF 100%)' }}>
         {/* Ambient blobs */}
         <div className="absolute top-0 left-1/4 w-96 h-96 bg-white/5 rounded-full blur-3xl pointer-events-none" />
-        <div className="absolute bottom-0 right-1/4 w-80 h-80 bg-indigo-300/10 rounded-full blur-3xl pointer-events-none" />
+        <div className="absolute bottom-0 right-1/4 w-80 h-80 bg-brand-secondary/10 rounded-full blur-3xl pointer-events-none" />
 
         <div className="mx-auto max-w-4xl px-6 text-center relative z-10">
           <h2 className="text-4xl sm:text-5xl md:text-6xl font-extrabold tracking-tight text-white mb-6">
@@ -621,8 +621,11 @@ export default function Home() {
                 a: 'TrackrAI focuses on personal finance. The features cover individual expense tracking, subscriptions, and spending habits. Freelancers also use it to separate personal and business expenses.',
               },
             ].map((faq) => (
-              <div key={faq.q} className="group rounded-2xl border border-gray-200 bg-white hover:border-[#635BFF]/30 hover:shadow-sm transition-all p-6 pl-7 relative overflow-hidden">
-                <div className="absolute left-0 top-0 bottom-0 w-1 bg-gradient-to-b from-[#635BFF] to-[#635BFF]/30 opacity-0 group-hover:opacity-100 transition-opacity rounded-l-2xl" />
+              <div
+                key={faq.q}
+                className="group rounded-2xl border border-gray-200 bg-white hover:border-brand-primary/30 hover:shadow-sm transition-all p-6 pl-7 relative overflow-hidden"
+              >
+                <div className="absolute left-0 top-0 bottom-0 w-1 bg-gradient-to-b from-brand-primary to-brand-primary/30 opacity-0 group-hover:opacity-100 transition-opacity rounded-l-2xl" />
                 <h3 className="text-base font-semibold text-gray-900 mb-2">{faq.q}</h3>
                 <p className="text-gray-600 text-sm leading-relaxed">{faq.a}</p>
               </div>
@@ -632,7 +635,7 @@ export default function Home() {
           <div className="text-center mt-12">
             <p className="text-gray-500 mb-5 text-sm">Still have questions?</p>
             <a href="/help">
-              <Button variant="outline" size="lg" className="rounded-full border-2 border-gray-300 hover:border-[#635BFF] hover:text-[#635BFF] transition-all">
+              <Button variant="outline" size="lg" className="rounded-full border-2 border-gray-300 hover:border-brand-primary hover:text-brand-primary transition-all">
                 Visit Help Center
               </Button>
             </a>

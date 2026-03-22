@@ -61,17 +61,17 @@ export function SyncSection() {
       id="mobile_app_2"
       data-track-section="mobile_app_2"
       className="py-28 relative overflow-hidden"
-      style={{ background: 'linear-gradient(135deg, #0F172A 0%, #1E1B4B 55%, #0F172A 100%)' }}
+      style={{ background: 'linear-gradient(135deg, #0F172A 0%, #0F2A6B 55%, #0F172A 100%)' }}
     >
       {/* Ambient glow blobs */}
-      <div className="absolute top-0 left-1/4 w-96 h-96 bg-[#635BFF]/20 rounded-full blur-[120px] pointer-events-none" />
-      <div className="absolute bottom-0 right-1/4 w-80 h-80 bg-indigo-600/15 rounded-full blur-[100px] pointer-events-none" />
+      <div className="absolute top-0 left-1/4 w-96 h-96 bg-brand-primary/20 rounded-full blur-[120px] pointer-events-none" />
+      <div className="absolute bottom-0 right-1/4 w-80 h-80 bg-brand-secondary/15 rounded-full blur-[100px] pointer-events-none" />
 
       <div ref={ref} className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
 
         {/* Section header */}
         <div className="text-center mb-16">
-          <div className="inline-flex items-center rounded-full border border-[#635BFF]/40 bg-[#635BFF]/15 px-4 py-1.5 text-sm text-[#635BFF] font-semibold mb-6">
+          <div className="section-label-dark mb-6">
             Cross-Platform Sync
           </div>
           <h2 className="text-4xl md:text-5xl font-extrabold text-white mb-6">
@@ -120,8 +120,8 @@ export function SyncSection() {
                       key={label}
                       className="flex items-center justify-between p-2 rounded-lg border transition-all duration-300"
                       style={{
-                        background: flash ? 'rgba(99,91,255,0.25)' : 'rgba(255,255,255,0.05)',
-                        borderColor: flash ? 'rgba(99,91,255,0.5)' : 'rgba(255,255,255,0.08)',
+                        background: flash ? 'rgba(41,94,255,0.25)' : 'rgba(255,255,255,0.05)',
+                        borderColor: flash ? 'rgba(41,94,255,0.5)' : 'rgba(255,255,255,0.08)',
                       }}
                     >
                       <span className="text-[10px] text-gray-400">{label}</span>
@@ -139,7 +139,7 @@ export function SyncSection() {
                       key={i}
                       className="flex-1 rounded-t"
                       style={{
-                        backgroundColor: 'rgba(99,91,255,0.6)',
+                        backgroundColor: 'rgba(41,94,255,0.6)',
                         height: `${h}%`,
                         transform: inView ? 'scaleY(1)' : 'scaleY(0)',
                         transformOrigin: 'bottom',
@@ -168,7 +168,7 @@ export function SyncSection() {
             <div className="relative w-full h-5 flex items-center">
               {/* Base line */}
               <div className="absolute inset-0 flex items-center">
-                <div className="w-full h-px bg-[#635BFF]/20 rounded-full" />
+                <div className="w-full h-px bg-brand-primary/20 rounded-full" />
               </div>
               {/* Flowing beam */}
               {enterDone && (
@@ -176,18 +176,18 @@ export function SyncSection() {
                   <div className="sync-beam-right w-full h-0.5" />
                 </div>
               )}
-              <span className="relative ml-auto text-[9px] text-[#635BFF]/70 font-bold pr-1 shrink-0">→</span>
+              <span className="relative ml-auto text-[9px] text-brand-primary/70 font-bold pr-1 shrink-0">→</span>
             </div>
 
             {/* Center database icon */}
             <div className="relative flex flex-col items-center">
               <div
-                className="w-14 h-14 rounded-2xl bg-[#635BFF]/20 border border-[#635BFF]/40 flex items-center justify-center backdrop-blur-sm shadow-lg shadow-[#635BFF]/20"
+                className="w-14 h-14 rounded-2xl bg-brand-primary/20 border border-brand-primary/40 flex items-center justify-center backdrop-blur-sm shadow-lg shadow-brand-primary/20"
                 style={{ animation: enterDone ? 'syncPulseRing 2s ease-in-out infinite' : 'none' }}
               >
-                <Database className="h-7 w-7 text-[#635BFF]" />
+                <Database className="h-7 w-7 text-brand-primary" />
               </div>
-              <p className="text-[10px] text-[#635BFF]/80 font-semibold mt-1.5 text-center leading-tight">
+              <p className="text-[10px] text-brand-primary/80 font-semibold mt-1.5 text-center leading-tight">
                 Supabase<br />Real-time
               </p>
             </div>
@@ -196,7 +196,7 @@ export function SyncSection() {
             <div className="relative w-full h-5 flex items-center">
               {/* Base line */}
               <div className="absolute inset-0 flex items-center">
-                <div className="w-full h-px bg-indigo-400/20 rounded-full" />
+                <div className="w-full h-px bg-brand-secondary/20 rounded-full" />
               </div>
               {/* Flowing beam */}
               {enterDone && (
@@ -204,7 +204,7 @@ export function SyncSection() {
                   <div className="sync-beam-left w-full h-0.5" />
                 </div>
               )}
-              <span className="relative text-[9px] text-[#635BFF]/70 font-bold pl-1 shrink-0">←</span>
+              <span className="relative text-[9px] text-brand-primary/70 font-bold pl-1 shrink-0">←</span>
             </div>
           </div>
 
@@ -226,14 +226,14 @@ export function SyncSection() {
                   <p
                     className="text-xl font-extrabold text-gray-900 tabular-nums transition-all duration-300"
                     style={{
-                      color: phoneFlash ? '#635BFF' : '#111827',
+                      color: phoneFlash ? '#295EFF' : '#111827',
                       transform: phoneFlash ? 'scale(1.03)' : 'scale(1)',
                     }}
                   >
                     {kpi.balance}
                   </p>
                   {phoneFlash && (
-                    <p className="text-[8px] text-[#635BFF] font-semibold mt-0.5 animate-fade-in">Synced ✓</p>
+                    <p className="text-[8px] text-brand-primary font-semibold mt-0.5 animate-fade-in">Synced ✓</p>
                   )}
                   {/* Income/Expenses */}
                   <div className="grid grid-cols-2 gap-1.5 mt-3">
@@ -267,7 +267,7 @@ export function SyncSection() {
                         key={i}
                         className="flex-1 rounded-t"
                         style={{
-                          backgroundColor: 'rgba(99,91,255,0.6)',
+                          backgroundColor: 'rgba(41,94,255,0.6)',
                           height: `${h}%`,
                           transform: inView ? 'scaleY(1)' : 'scaleY(0)',
                           transformOrigin: 'bottom',
@@ -304,8 +304,8 @@ export function SyncSection() {
                 transition: `opacity 0.5s ease ${i * 120 + 700}ms`,
               }}
             >
-              <div className="w-9 h-9 rounded-xl bg-[#635BFF]/20 flex items-center justify-center shrink-0">
-                <Icon className="h-4 w-4 text-[#635BFF]" />
+              <div className="w-9 h-9 rounded-xl bg-brand-primary/20 flex items-center justify-center shrink-0">
+                <Icon className="h-4 w-4 text-brand-primary" />
               </div>
               <div>
                 <p className="text-sm font-semibold text-white">{label}</p>

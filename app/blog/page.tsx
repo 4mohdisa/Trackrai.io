@@ -27,7 +27,7 @@ export default function BlogPage() {
       {/* Header */}
       <section className="pt-32 pb-16 bg-gradient-to-b from-white via-blue-50/30 to-white border-b border-gray-100">
         <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 text-center">
-          <div className="inline-block px-4 py-2 bg-[#635BFF]/10 text-[#635BFF] rounded-full text-sm font-semibold mb-6">
+          <div className="section-label mb-6">
             BLOG
           </div>
           <h1 className="text-4xl md:text-5xl font-extrabold text-gray-900 mb-4">
@@ -51,10 +51,10 @@ export default function BlogPage() {
               {posts.map((post) => (
                 <article
                   key={post.slug}
-                  className="group rounded-2xl border border-gray-200 bg-white p-8 hover:shadow-lg hover:border-[#635BFF]/30 transition-all duration-300"
+                  className="group rounded-2xl border border-gray-200 bg-white p-8 hover:shadow-lg hover:border-brand-primary/30 transition-all duration-300"
                 >
                   <div className="flex flex-wrap gap-3 mb-4">
-                    <span className="inline-flex items-center gap-1.5 text-xs text-[#635BFF] font-semibold bg-[#635BFF]/10 px-3 py-1 rounded-full">
+                    <span className="inline-flex items-center gap-1.5 text-xs text-brand-primary font-semibold bg-brand-primary/10 px-3 py-1 rounded-full">
                       {post.category}
                     </span>
                     <span className="inline-flex items-center gap-1.5 text-xs text-gray-500">
@@ -70,13 +70,13 @@ export default function BlogPage() {
                       {post.readTime}
                     </span>
                   </div>
-                  <h2 className="text-2xl font-bold text-gray-900 mb-3 group-hover:text-[#635BFF] transition-colors">
+                  <h2 className="text-2xl font-bold text-gray-900 mb-3 group-hover:text-brand-primary transition-colors">
                     <Link href={`/blog/${post.slug}`}>{post.title}</Link>
                   </h2>
                   <p className="text-gray-600 leading-relaxed mb-5">{post.excerpt}</p>
                   <Link
                     href={`/blog/${post.slug}`}
-                    className="inline-flex items-center gap-2 text-[#635BFF] font-semibold text-sm hover:gap-3 transition-all"
+                    className="inline-flex items-center gap-2 text-brand-primary font-semibold text-sm hover:gap-3 transition-all"
                   >
                     Read article
                     <ArrowRight className="h-4 w-4" />

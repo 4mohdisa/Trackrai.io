@@ -59,7 +59,7 @@ export function ReportsCard() {
         >
           <div className="flex items-center justify-between mb-4">
             <p className="text-sm font-bold text-gray-900">Saved Reports</p>
-            <button className="text-[10px] bg-[#635BFF] text-white px-2.5 py-1.5 rounded-lg font-semibold animate-bounce-light">
+            <button className="text-[10px] bg-brand-primary text-white px-2.5 py-1.5 rounded-lg font-semibold animate-bounce-light">
               + Generate
             </button>
           </div>
@@ -149,7 +149,7 @@ export function ReportsCard() {
                 </div>
                 <div className="h-1.5 bg-gray-100 rounded-full overflow-hidden">
                   <div
-                    className="h-full bg-[#635BFF] rounded-full"
+                    className="h-full bg-brand-primary rounded-full"
                     style={{
                       width: `${pct}%`,
                       transform: progressReady ? 'scaleX(1)' : 'scaleX(0)',
@@ -175,7 +175,7 @@ export function ReportsCard() {
               className={`w-full flex items-center justify-center gap-2 py-2 rounded-xl text-xs font-semibold mt-1 transition-all duration-300 animate-fade-in ${
                 exporting
                   ? 'bg-green-50 border border-green-200 text-green-600'
-                  : 'bg-gray-50 border border-gray-200 text-gray-600 hover:border-[#635BFF]/40'
+                  : 'bg-gray-50 border border-gray-200 text-gray-600 hover:border-brand-primary/40'
               }`}
             >
               <Download className={`h-3.5 w-3.5 ${exporting ? 'text-green-500 animate-bounce-light' : ''}`} />

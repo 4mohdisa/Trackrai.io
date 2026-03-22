@@ -71,13 +71,13 @@ export default async function BlogPostPage({ params }: Props) {
         <div className="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
           <Link
             href="/blog"
-            className="inline-flex items-center gap-2 text-sm text-gray-500 hover:text-[#635BFF] mb-8 transition-colors"
+            className="inline-flex items-center gap-2 text-sm text-gray-500 hover:text-brand-primary mb-8 transition-colors"
           >
             <ArrowLeft className="h-4 w-4" />
             Back to Blog
           </Link>
           <div className="flex flex-wrap gap-3 mb-5">
-            <span className="inline-flex items-center text-xs text-[#635BFF] font-semibold bg-[#635BFF]/10 px-3 py-1 rounded-full">
+            <span className="inline-flex items-center text-xs text-brand-primary font-semibold bg-brand-primary/10 px-3 py-1 rounded-full">
               {post.category}
             </span>
             <span className="inline-flex items-center gap-1.5 text-xs text-gray-500">
@@ -128,7 +128,7 @@ export default async function BlogPostPage({ params }: Props) {
             </a>
             <Link
               href="/blog"
-              className="inline-flex items-center justify-center rounded-full border-2 border-gray-300 text-gray-700 font-semibold px-8 py-3 hover:border-[#635BFF] hover:text-[#635BFF] transition-colors"
+              className="inline-flex items-center justify-center rounded-full border-2 border-gray-300 text-gray-700 font-semibold px-8 py-3 hover:border-brand-primary hover:text-brand-primary transition-colors"
             >
               More Articles
             </Link>

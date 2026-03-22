@@ -28,8 +28,8 @@ export default function PrivacyPage() {
       <section className="pt-32 pb-16 bg-gradient-to-b from-gray-50 to-white">
         <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-center mb-6">
-            <div className="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-[#635BFF]/10">
-              <Shield className="h-8 w-8 text-[#635BFF]" />
+            <div className="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-brand-primary/10">
+              <Shield className="h-8 w-8 text-brand-primary" />
             </div>
           </div>
           <h1 className="text-4xl md:text-5xl font-bold text-center text-gray-900 mb-4">
@@ -115,7 +115,7 @@ export default function PrivacyPage() {
             </p>
             <a
               href="/help"
-              className="inline-flex items-center gap-1.5 text-[#635BFF] font-medium hover:underline"
+              className="inline-flex items-center gap-1.5 text-brand-primary font-medium hover:underline"
             >
               Go to the Help Center &rarr;
             </a>

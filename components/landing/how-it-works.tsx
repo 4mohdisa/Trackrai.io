@@ -52,10 +52,10 @@ export function HowItWorksSection() {
   const { ref, inView } = useStepsInView(0.2)
 
   return (
-    <section id="how-it-works" className="py-24 md:py-32 bg-[#F8F9FF]">
+    <section id="how-it-works" className="py-24 md:py-32 bg-[#F8FAFF]">
       <div className="mx-auto max-w-7xl px-6">
         <div className="text-center mb-16">
-          <div className="inline-flex items-center rounded-full bg-[#635BFF]/10 px-4 py-1.5 text-sm font-medium text-[#635BFF] mb-5">
+          <div className="section-label mb-5">
             How It Works
           </div>
           <h2 className="text-4xl md:text-5xl font-extrabold tracking-tight text-gray-900 mb-5">
@@ -73,7 +73,7 @@ export function HowItWorksSection() {
             aria-hidden="true"
           >
             <div
-              className="h-full border-t-2 border-dashed border-[#635BFF]/30 transition-all duration-700 ease-out"
+              className="h-full border-t-2 border-dashed border-brand-primary/30 transition-all duration-700 ease-out"
               style={{
                 width: inView ? '100%' : '0%',
                 transitionDelay: '600ms',
@@ -96,7 +96,7 @@ export function HowItWorksSection() {
               >
                 {/* Icon with bounce on entry */}
                 <div
-                  className={`inline-flex items-center justify-center w-12 h-12 rounded-xl bg-[#635BFF]/10 text-[#635BFF] mb-5
+                  className={`inline-flex items-center justify-center w-12 h-12 rounded-xl bg-brand-primary/10 text-brand-primary mb-5
                     ${inView ? 'hiw-icon-bounce' : ''}`}
                   style={{ animationDelay: `${i * 150 + 450}ms` }}
                 >
@@ -104,7 +104,7 @@ export function HowItWorksSection() {
                 </div>
 
                 {/* Step number */}
-                <span className="text-4xl font-extrabold text-[#635BFF]/20 mb-3 leading-none tabular-nums">
+                <span className="text-4xl font-extrabold text-brand-primary/20 mb-3 leading-none tabular-nums">
                   {inView ? (
                     <CountUp target={displayNum} delay={i * 150} />
                   ) : '00'}
@@ -116,7 +116,7 @@ export function HowItWorksSection() {
                 {/* Arrow indicator */}
                 {i < 2 && (
                   <div className="hidden md:flex absolute -right-5 top-10 z-10 w-10 h-10 rounded-full bg-white border border-gray-100 shadow-sm items-center justify-center">
-                    <span className="text-[#635BFF] font-bold text-lg leading-none">›</span>
+                    <span className="text-brand-primary font-bold text-lg leading-none">›</span>
                   </div>
                 )}
               </div>

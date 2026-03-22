@@ -33,9 +33,13 @@ export function LandingFooter() {
           {/* Brand column */}
           <div className="md:col-span-1 space-y-5">
             <Link href="/" className="inline-block">
-              <span className="text-2xl font-bold text-white">
-                TrackrAI
-              </span>
+              <Image
+                src="/logo-dark-theme.svg"
+                alt="TrackrAI"
+                width={140}
+                height={36}
+                className="h-9 w-auto"
+              />
             </Link>
             <p className="text-sm text-gray-400 leading-relaxed max-w-xs">
               AI-Powered Personal Finance Tracker. TrackrAI tracks your expenses, categories, merchants, and recurring payments in one place.

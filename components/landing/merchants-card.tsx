@@ -53,7 +53,7 @@ export function MerchantsCard() {
 
   return (
     <div ref={ref} className="relative">
-      <div className="absolute -inset-4 bg-gradient-to-r from-indigo-500/10 to-violet-500/10 rounded-3xl blur-2xl" />
+      <div className="absolute -inset-4 bg-gradient-to-r from-brand-primary/10 to-brand-secondary/10 rounded-3xl blur-2xl" />
       <div className="relative bg-white rounded-2xl border border-gray-200 shadow-xl overflow-hidden" style={{ minHeight: 340 }}>
 
         {/* ── LIST VIEW ── */}
@@ -63,7 +63,7 @@ export function MerchantsCard() {
         >
           <div className="flex items-center justify-between pb-4 mb-4 border-b border-gray-100">
             <p className="text-sm font-bold text-gray-900">Merchant Manager</p>
-            <span className="text-xs bg-[#635BFF]/10 text-[#635BFF] font-semibold px-2.5 py-1 rounded-full">8 merchants</span>
+            <span className="text-xs bg-brand-primary/10 text-brand-primary font-semibold px-2.5 py-1 rounded-full">8 merchants</span>
           </div>
           <div className="space-y-2.5 mb-3">
             {MERCHANTS.map(({ name, category, amount, bg, iconCls }, i) => (
@@ -217,8 +217,8 @@ export function MerchantsCard() {
                     key={s}
                     className={`p-2.5 rounded-xl border cursor-pointer transition-all duration-200 flex items-center justify-between ${
                       selectedSuggestion === i
-                        ? 'bg-[#635BFF] border-[#635BFF] text-white'
-                        : 'bg-gray-50 border-gray-200 hover:border-[#635BFF]/40'
+                        ? 'bg-brand-primary border-brand-primary text-white'
+                        : 'bg-gray-50 border-gray-200 hover:border-brand-primary/40'
                     }`}
                     style={{
                       opacity: view === 'assign' ? 1 : 0,

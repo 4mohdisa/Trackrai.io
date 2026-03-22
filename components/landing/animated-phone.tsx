@@ -18,7 +18,7 @@ const TRANSACTIONS = [
 ]
 
 const CHART_CATEGORIES = [
-  { label: 'Food & Dining', pct: 34, color: '#635BFF' },
+  { label: 'Food & Dining', pct: 34, color: '#295EFF' },
   { label: 'Shopping',      pct: 23, color: '#f97316' },
   { label: 'Transport',     pct: 19, color: '#3b82f6' },
   { label: 'Utilities',     pct: 14, color: '#22c55e' },
@@ -26,7 +26,7 @@ const CHART_CATEGORIES = [
 ]
 
 const CATEGORIES_BAR = [
-  { label: 'Food & Dining', amount: '$680', pct: 45, color: '#635BFF' },
+  { label: 'Food & Dining', amount: '$680', pct: 45, color: '#295EFF' },
   { label: 'Transport',     amount: '$340', pct: 22, color: '#3b82f6' },
   { label: 'Shopping',      amount: '$450', pct: 30, color: '#f97316' },
   { label: 'Entertainment', amount: '$220', pct: 15, color: '#22c55e' },
@@ -55,7 +55,7 @@ function TypewriterText({ text, active }: { text: string; active: boolean }) {
   return (
     <span className="tabular-nums">
       {displayed}
-      <span className="inline-block w-0.5 h-4 bg-[#635BFF] ml-0.5 animate-pulse" />
+      <span className="inline-block w-0.5 h-4 bg-brand-primary ml-0.5 animate-pulse" />
     </span>
   )
 }
@@ -66,8 +66,8 @@ function BottomNav({ active }: { active: number }) {
     <div className="absolute bottom-4 left-4 right-4 flex justify-around pt-3 border-t border-gray-100">
       {tabs.map((tab, i) => (
         <div key={tab} className="flex flex-col items-center gap-0.5">
-          <div className={`w-5 h-5 rounded-lg ${i === active ? 'bg-[#635BFF]' : 'bg-gray-200'}`} />
-          <span className={`text-[9px] font-medium ${i === active ? 'text-[#635BFF]' : 'text-gray-400'}`}>{tab}</span>
+          <div className={`w-5 h-5 rounded-lg ${i === active ? 'bg-brand-primary' : 'bg-gray-200'}`} />
+          <span className={`text-[9px] font-medium ${i === active ? 'text-brand-primary' : 'text-gray-400'}`}>{tab}</span>
         </div>
       ))}
     </div>
@@ -117,7 +117,7 @@ export function AnimatedPhone() {
   return (
     <div ref={ref} className="flex justify-center lg:justify-end">
       <div className="relative scale-[0.82] md:scale-100 origin-top">
-        <div className="absolute -inset-6 bg-gradient-to-r from-[#635BFF]/15 to-indigo-400/15 rounded-full blur-3xl" />
+        <div className="absolute -inset-6 bg-gradient-to-r from-brand-primary/15 to-brand-secondary/15 rounded-full blur-3xl" />
         <div className="relative">
           <PhoneMockup width={288} className="animate-float">
             {/* Screen height: 540px keeps a tall phone without being too imposing on mobile */}
@@ -172,7 +172,7 @@ export function AnimatedPhone() {
                 <div className="space-y-4">
                   <div>
                     <p className="text-xs text-gray-500 mb-1.5">Amount</p>
-                    <div className="bg-gray-50 border border-[#635BFF]/30 rounded-xl p-3 text-lg font-bold text-gray-900">
+                    <div className="bg-gray-50 border border-brand-primary/30 rounded-xl p-3 text-lg font-bold text-gray-900">
                       {screen === 'add' ? <TypewriterText text="$84.30" active={screen === 'add'} /> : '$84.30'}
                     </div>
                   </div>
@@ -182,9 +182,9 @@ export function AnimatedPhone() {
                   </div>
                   <div>
                     <p className="text-xs text-gray-500 mb-1.5">Category</p>
-                    <div className="bg-[#635BFF]/10 border border-[#635BFF]/30 rounded-xl p-3 flex items-center justify-between">
-                      <span className="text-sm font-semibold text-[#635BFF]">Food &amp; Dining</span>
-                      <span className="text-xs bg-[#635BFF] text-white px-2 py-0.5 rounded-full">AI</span>
+                    <div className="bg-brand-primary/10 border border-brand-primary/30 rounded-xl p-3 flex items-center justify-between">
+                      <span className="text-sm font-semibold text-brand-primary">Food &amp; Dining</span>
+                      <span className="text-xs bg-brand-primary text-white px-2 py-0.5 rounded-full">AI</span>
                     </div>
                   </div>
                   {saved ? (
@@ -193,7 +193,7 @@ export function AnimatedPhone() {
                       <span className="text-sm font-semibold text-green-700">Transaction saved</span>
                     </div>
                   ) : (
-                    <button className="w-full bg-[#635BFF] text-white text-sm font-semibold py-3 rounded-xl">
+                    <button className="w-full bg-brand-primary text-white text-sm font-semibold py-3 rounded-xl">
                       Save Transaction
                     </button>
                   )}
@@ -295,8 +295,8 @@ export function AnimatedPhone() {
                       }}
                     >
                       <div className="flex items-center gap-2.5">
-                        <div className="w-8 h-8 rounded-lg bg-[#635BFF]/10 flex items-center justify-center">
-                          <Repeat className="h-4 w-4 text-[#635BFF]" />
+                        <div className="w-8 h-8 rounded-lg bg-brand-primary/10 flex items-center justify-center">
+                          <Repeat className="h-4 w-4 text-brand-primary" />
                         </div>
                         <div>
                           <p className="text-xs font-semibold text-gray-900">{item.name}</p>
@@ -308,14 +308,14 @@ export function AnimatedPhone() {
                   ))}
                 </div>
                 <div
-                  className="mt-4 p-3 bg-[#635BFF]/5 border border-[#635BFF]/15 rounded-xl"
+                  className="mt-4 p-3 bg-brand-primary/5 border border-brand-primary/15 rounded-xl"
                   style={{
                     opacity: screen === 'recurring' ? 1 : 0,
                     transition: 'opacity 0.5s ease 550ms',
                   }}
                 >
                   <p className="text-xs text-gray-500">Total this month</p>
-                  <p className="text-xl font-bold text-[#635BFF]">$1,265.98</p>
+                  <p className="text-xl font-bold text-brand-primary">$1,265.98</p>
                 </div>
                 <BottomNav active={1} />
               </div>

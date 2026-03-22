@@ -31,19 +31,19 @@ export function SecurityTrustSection() {
   return (
     <section id="security-trust" className="py-24 md:py-32 bg-gray-900 relative overflow-hidden">
       {/* Ambient glow */}
-      <div className="absolute top-0 left-1/3 w-96 h-96 bg-[#635BFF]/15 rounded-full blur-[120px] pointer-events-none" />
-      <div className="absolute bottom-0 right-1/4 w-80 h-80 bg-indigo-600/10 rounded-full blur-[100px] pointer-events-none" />
+      <div className="absolute top-0 left-1/3 w-96 h-96 bg-brand-primary/15 rounded-full blur-[120px] pointer-events-none" />
+      <div className="absolute bottom-0 right-1/4 w-80 h-80 bg-brand-secondary/10 rounded-full blur-[100px] pointer-events-none" />
 
       <div className="relative mx-auto max-w-7xl px-6">
         {/* Header — strictly centred vertical stack */}
         <div className="flex flex-col items-center gap-5 text-center mb-16">
           {/* Shield icon */}
-          <div className="flex items-center justify-center w-16 h-16 rounded-2xl bg-[#635BFF]/20 border border-[#635BFF]/30">
-            <Shield className="h-8 w-8 text-[#635BFF]" />
+          <div className="flex items-center justify-center w-16 h-16 rounded-2xl bg-brand-primary/20 border border-brand-primary/30">
+            <Shield className="h-8 w-8 text-brand-primary" />
           </div>
 
           {/* Pill label */}
-          <div className="inline-flex items-center rounded-full border border-[#635BFF]/40 bg-[#635BFF]/15 px-4 py-1.5 text-sm text-[#635BFF] font-medium">
+          <div className="section-label-dark">
             Security
           </div>
 
@@ -65,8 +65,8 @@ export function SecurityTrustSection() {
               key={title}
               className="flex gap-5 rounded-xl border border-white/10 bg-white/5 p-6 hover:bg-white/8 transition-colors"
             >
-              <div className="shrink-0 inline-flex items-center justify-center w-11 h-11 rounded-xl bg-[#635BFF]/20">
-                <Icon className="h-5 w-5 text-[#635BFF]" />
+              <div className="shrink-0 inline-flex items-center justify-center w-11 h-11 rounded-xl bg-brand-primary/20">
+                <Icon className="h-5 w-5 text-brand-primary" />
               </div>
               <div>
                 <h3 className="text-white font-semibold mb-1.5">{title}</h3>

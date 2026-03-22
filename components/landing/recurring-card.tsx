@@ -52,7 +52,7 @@ export function RecurringCard() {
         >
           <div className="flex items-center justify-between mb-4">
             <h3 className="text-sm font-bold text-gray-900">Recurring Payments</h3>
-            <span className="text-xs bg-[#635BFF]/10 text-[#635BFF] font-semibold px-2.5 py-1 rounded-full">4 active</span>
+            <span className="text-xs bg-brand-primary/10 text-brand-primary font-semibold px-2.5 py-1 rounded-full">4 active</span>
           </div>
           <div className="space-y-3">
             {RECURRING_ITEMS.map(({ name, amount, period, icon: Icon, bg, iconCls, itemBg }, i) => {
@@ -89,7 +89,7 @@ export function RecurringCard() {
           style={{ opacity: view === 'calendar' ? 1 : 0, pointerEvents: view === 'calendar' ? 'auto' : 'none' }}
         >
           <div className="flex items-center gap-2 mb-4">
-            <Clock className="h-4 w-4 text-[#635BFF]" />
+            <Clock className="h-4 w-4 text-brand-primary" />
             <h3 className="text-sm font-bold text-gray-900">Upcoming this week</h3>
           </div>
           {/* Mini calendar grid */}
@@ -105,7 +105,7 @@ export function RecurringCard() {
                 <div
                   key={day}
                   className={`text-[10px] rounded-full w-6 h-6 mx-auto flex items-center justify-center relative
-                    ${isToday ? 'bg-[#635BFF] text-white font-bold' : 'text-gray-600'}
+                    ${isToday ? 'bg-brand-primary text-white font-bold' : 'text-gray-600'}
                     ${hasDot ? 'font-semibold' : ''}`}
                 >
                   {day <= 31 ? day : ''}
@@ -127,7 +127,7 @@ export function RecurringCard() {
                 }}
               >
                 <div className="flex items-center gap-2">
-                  <span className="text-[10px] font-semibold text-[#635BFF] bg-[#635BFF]/10 px-1.5 py-0.5 rounded">{date}</span>
+                  <span className="text-[10px] font-semibold text-brand-primary bg-brand-primary/10 px-1.5 py-0.5 rounded">{date}</span>
                   <span className="text-xs text-gray-700">{name}</span>
                 </div>
                 <span className="text-xs font-bold text-gray-900">{amount}</span>

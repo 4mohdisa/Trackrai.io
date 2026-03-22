@@ -29,8 +29,8 @@ export default function SecurityPage() {
       <section className="pt-32 pb-16 bg-gradient-to-b from-gray-50 to-white">
         <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-center mb-6">
-            <div className="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-[#635BFF]/10">
-              <Lock className="h-8 w-8 text-[#635BFF]" />
+            <div className="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-brand-primary/10">
+              <Lock className="h-8 w-8 text-brand-primary" />
             </div>
           </div>
           <h1 className="text-4xl md:text-5xl font-bold text-center text-gray-900 mb-4">
@@ -176,7 +176,7 @@ export default function SecurityPage() {
           </p>
           <a
             href="/help"
-            className="inline-flex items-center px-6 py-3 bg-[#635BFF] text-white rounded-full hover:bg-[#5851EA] transition-colors cursor-pointer"
+            className="inline-flex items-center px-6 py-3 bg-brand-primary text-white rounded-full hover:bg-brand-secondary transition-colors cursor-pointer"
           >
             Contact Support
           </a>

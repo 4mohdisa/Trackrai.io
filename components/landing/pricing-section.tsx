@@ -110,13 +110,13 @@ export function PricingSection() {
           </Card>
 
           {/* Pro Plan */}
-          <Card className="relative overflow-hidden border-2 border-[#635BFF] bg-white shadow-2xl">
+          <Card className="relative overflow-hidden border-2 border-brand-primary bg-white shadow-2xl">
             <div className="absolute top-4 right-4">
-              <div className="bg-gradient-to-r from-[#635BFF] to-blue-600 text-white px-3 py-1 rounded-full text-xs font-semibold">
+              <div className="bg-gradient-to-r from-brand-primary to-brand-secondary text-white px-3 py-1 rounded-full text-xs font-semibold">
                 Popular
               </div>
             </div>
-            <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-[#635BFF] to-[#00D4FF] opacity-10 rounded-full -mr-16 -mt-16" />
+            <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-brand-primary to-brand-secondary opacity-10 rounded-full -mr-16 -mt-16" />
             
             <div className="p-8 sm:p-10">
               <div className="text-center mb-8">
@@ -135,7 +135,7 @@ export function PricingSection() {
                     <p className="text-sm text-gray-600">Billed annually</p>
                   </>
                 ) : (
-                  <p className="text-sm text-[#635BFF] font-medium">or save with yearly</p>
+                  <p className="text-sm text-brand-primary font-medium">or save with yearly</p>
                 )}
               </div>
               
@@ -153,49 +153,49 @@ export function PricingSection() {
                 </div>
                 <p className="text-sm font-semibold text-gray-900 mb-4">Everything in Free, plus:</p>
                 <div className="flex items-center gap-3">
-                  <div className="w-5 h-5 rounded-full bg-[#635BFF] flex items-center justify-center flex-shrink-0">
+                  <div className="w-5 h-5 rounded-full bg-brand-primary flex items-center justify-center flex-shrink-0">
                     <CheckCircle2 className="h-3 w-3 text-white" />
                   </div>
                   <span className="text-gray-700 text-sm font-medium">Unlimited transactions</span>
                 </div>
                 <div className="flex items-center gap-3">
-                  <div className="w-5 h-5 rounded-full bg-[#635BFF] flex items-center justify-center flex-shrink-0">
+                  <div className="w-5 h-5 rounded-full bg-brand-primary flex items-center justify-center flex-shrink-0">
                     <CheckCircle2 className="h-3 w-3 text-white" />
                   </div>
                   <span className="text-gray-700 text-sm font-medium">Advanced analytics & charts</span>
                 </div>
                 <div className="flex items-center gap-3">
-                  <div className="w-5 h-5 rounded-full bg-[#635BFF] flex items-center justify-center flex-shrink-0">
+                  <div className="w-5 h-5 rounded-full bg-brand-primary flex items-center justify-center flex-shrink-0">
                     <CheckCircle2 className="h-3 w-3 text-white" />
                   </div>
                   <span className="text-gray-700 text-sm font-medium">Unlimited custom categories</span>
                 </div>
                 <div className="flex items-center gap-3">
-                  <div className="w-5 h-5 rounded-full bg-[#635BFF] flex items-center justify-center flex-shrink-0">
+                  <div className="w-5 h-5 rounded-full bg-brand-primary flex items-center justify-center flex-shrink-0">
                     <CheckCircle2 className="h-3 w-3 text-white" />
                   </div>
                   <span className="text-gray-700 text-sm font-medium">Recurring transactions</span>
                 </div>
                 <div className="flex items-center gap-3">
-                  <div className="w-5 h-5 rounded-full bg-[#635BFF] flex items-center justify-center flex-shrink-0">
+                  <div className="w-5 h-5 rounded-full bg-brand-primary flex items-center justify-center flex-shrink-0">
                     <CheckCircle2 className="h-3 w-3 text-white" />
                   </div>
                   <span className="text-gray-700 text-sm font-medium">CSV import & export</span>
                 </div>
                 <div className="flex items-center gap-3">
-                  <div className="w-5 h-5 rounded-full bg-[#635BFF] flex items-center justify-center flex-shrink-0">
+                  <div className="w-5 h-5 rounded-full bg-brand-primary flex items-center justify-center flex-shrink-0">
                     <CheckCircle2 className="h-3 w-3 text-white" />
                   </div>
                   <span className="text-gray-700 text-sm font-medium">Priority support</span>
                 </div>
                 <div className="flex items-center gap-3">
-                  <div className="w-5 h-5 rounded-full bg-[#635BFF] flex items-center justify-center flex-shrink-0">
+                  <div className="w-5 h-5 rounded-full bg-brand-primary flex items-center justify-center flex-shrink-0">
                     <CheckCircle2 className="h-3 w-3 text-white" />
                   </div>
                   <span className="text-gray-700 text-sm font-medium">AI-powered savings recommendations</span>
                 </div>
                 <div className="flex items-center gap-3">
-                  <div className="w-5 h-5 rounded-full bg-[#635BFF] flex items-center justify-center flex-shrink-0">
+                  <div className="w-5 h-5 rounded-full bg-brand-primary flex items-center justify-center flex-shrink-0">
                     <CheckCircle2 className="h-3 w-3 text-white" />
                   </div>
                   <span className="text-gray-700 text-sm font-medium">Early access to new features</span>

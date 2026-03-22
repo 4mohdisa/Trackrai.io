@@ -5,7 +5,7 @@ import { useInView } from '@/hooks/useInView'
 import { Utensils, Car, Tv, ShoppingBag, HeartPulse, Zap } from 'lucide-react'
 
 const CATEGORIES = [
-  { label: 'Food & Dining',  amount: 680,  pct: 34, color: '#635BFF', bg: 'bg-[#635BFF]/10', icon: Utensils,  borderCls: 'border-l-[#635BFF]' },
+  { label: 'Food & Dining',  amount: 680,  pct: 34, color: '#295EFF', bg: 'bg-brand-primary/10', icon: Utensils,  borderCls: 'border-l-brand-primary' },
   { label: 'Transportation', amount: 340,  pct: 17, color: '#3b82f6', bg: 'bg-blue-50',       icon: Car,       borderCls: 'border-l-blue-500' },
   { label: 'Entertainment',  amount: 220,  pct: 11, color: '#22c55e', bg: 'bg-green-50',      icon: Tv,        borderCls: 'border-l-green-500' },
   { label: 'Shopping',       amount: 450,  pct: 23, color: '#f97316', bg: 'bg-orange-50',     icon: ShoppingBag, borderCls: 'border-l-orange-500' },

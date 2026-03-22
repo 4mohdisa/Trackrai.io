@@ -218,7 +218,7 @@ function FAQAccordion({ category }: { category: FAQCategory }) {
   return (
     <Card className="p-6 bg-white border-gray-200 shadow-sm hover:shadow-md transition-shadow">
       <div className="flex items-center gap-3 mb-6">
-        <div className="inline-flex items-center justify-center w-10 h-10 rounded-lg bg-[#635BFF]/10 text-[#635BFF]">
+        <div className="inline-flex items-center justify-center w-10 h-10 rounded-lg bg-brand-primary/10 text-brand-primary">
           {category.icon}
         </div>
         <h3 className="text-lg font-semibold text-gray-900">{category.title}</h3>
@@ -234,7 +234,7 @@ function FAQAccordion({ category }: { category: FAQCategory }) {
                 {item.question}
               </span>
               {openIndex === index ? (
-                <ChevronUp className="h-4 w-4 text-[#635BFF] shrink-0" />
+                <ChevronUp className="h-4 w-4 text-brand-primary shrink-0" />
               ) : (
                 <ChevronDown className="h-4 w-4 text-gray-400 group-hover:text-gray-600 shrink-0" />
               )}
@@ -325,7 +325,7 @@ export default function HelpPage() {
       <section className="pt-32 pb-16 bg-gradient-to-b from-blue-50 to-white">
         <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 text-center">
           <div className="flex items-center justify-center mb-6">
-            <div className="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-[#635BFF] shadow-lg">
+            <div className="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-brand-primary shadow-lg">
               <HelpCircle className="h-8 w-8 text-white" />
             </div>
           </div>
@@ -342,7 +342,7 @@ export default function HelpPage() {
               placeholder="Search for help..."
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
-              className="w-full pl-12 pr-4 py-4 text-lg border border-gray-200 rounded-xl bg-white focus:border-[#635BFF] focus:ring-2 focus:ring-[#635BFF]/20 outline-none transition shadow-sm"
+              className="w-full pl-12 pr-4 py-4 text-lg border border-gray-200 rounded-xl bg-white focus:border-brand-primary focus:ring-2 focus:ring-brand-primary/20 outline-none transition shadow-sm"
             />
           </div>
         </div>
@@ -421,7 +421,7 @@ export default function HelpPage() {
                       required
                       maxLength={100}
                       disabled={submitStatus === 'loading'}
-                      className="w-full border border-gray-200 rounded-xl px-4 py-3 text-base text-gray-900 placeholder:text-gray-400 focus:border-[#635BFF] focus:ring-2 focus:ring-[#635BFF]/20 outline-none transition disabled:opacity-50"
+                      className="w-full border border-gray-200 rounded-xl px-4 py-3 text-base text-gray-900 placeholder:text-gray-400 focus:border-brand-primary focus:ring-2 focus:ring-brand-primary/20 outline-none transition disabled:opacity-50"
                     />
                   </div>
                   <div className="space-y-1.5">
@@ -434,7 +434,7 @@ export default function HelpPage() {
                       onChange={(e) => setContactForm({ ...contactForm, email: e.target.value })}
                       required
                       disabled={submitStatus === 'loading'}
-                      className="w-full border border-gray-200 rounded-xl px-4 py-3 text-base text-gray-900 placeholder:text-gray-400 focus:border-[#635BFF] focus:ring-2 focus:ring-[#635BFF]/20 outline-none transition disabled:opacity-50"
+                      className="w-full border border-gray-200 rounded-xl px-4 py-3 text-base text-gray-900 placeholder:text-gray-400 focus:border-brand-primary focus:ring-2 focus:ring-brand-primary/20 outline-none transition disabled:opacity-50"
                     />
                   </div>
                 </div>
@@ -449,7 +449,7 @@ export default function HelpPage() {
                       onChange={(e) => setContactForm({ ...contactForm, supportType: e.target.value })}
                       required
                       disabled={submitStatus === 'loading'}
-                      className="w-full appearance-none border border-gray-200 rounded-xl px-4 py-3 text-base text-gray-900 bg-white focus:border-[#635BFF] focus:ring-2 focus:ring-[#635BFF]/20 outline-none transition disabled:opacity-50 pr-10"
+                      className="w-full appearance-none border border-gray-200 rounded-xl px-4 py-3 text-base text-gray-900 bg-white focus:border-brand-primary focus:ring-2 focus:ring-brand-primary/20 outline-none transition disabled:opacity-50 pr-10"
                     >
                       <option value="" disabled>Select a support type</option>
                       <option value="general">General Question</option>
@@ -474,7 +474,7 @@ export default function HelpPage() {
                     required
                     maxLength={200}
                     disabled={submitStatus === 'loading'}
-                    className="w-full border border-gray-200 rounded-xl px-4 py-3 text-base text-gray-900 placeholder:text-gray-400 focus:border-[#635BFF] focus:ring-2 focus:ring-[#635BFF]/20 outline-none transition disabled:opacity-50"
+                    className="w-full border border-gray-200 rounded-xl px-4 py-3 text-base text-gray-900 placeholder:text-gray-400 focus:border-brand-primary focus:ring-2 focus:ring-brand-primary/20 outline-none transition disabled:opacity-50"
                   />
                 </div>
 
@@ -490,7 +490,7 @@ export default function HelpPage() {
                     rows={6}
                     maxLength={5000}
                     disabled={submitStatus === 'loading'}
-                    className="w-full border border-gray-200 rounded-xl px-4 py-3 text-base text-gray-900 placeholder:text-gray-400 focus:border-[#635BFF] focus:ring-2 focus:ring-[#635BFF]/20 outline-none transition resize-none disabled:opacity-50 min-h-[140px]"
+                    className="w-full border border-gray-200 rounded-xl px-4 py-3 text-base text-gray-900 placeholder:text-gray-400 focus:border-brand-primary focus:ring-2 focus:ring-brand-primary/20 outline-none transition resize-none disabled:opacity-50 min-h-[140px]"
                   />
                   <p className="text-xs text-gray-400 text-right">{contactForm.message.length}/5000</p>
                 </div>
@@ -505,7 +505,7 @@ export default function HelpPage() {
                 <button
                   type="submit"
                   disabled={submitStatus === 'loading'}
-                  className="w-full py-3 px-8 rounded-xl bg-[#635BFF] hover:bg-[#4F46E5] text-white text-base font-semibold transition-colors disabled:opacity-60 flex items-center justify-center gap-2"
+                  className="w-full py-3 px-8 rounded-xl bg-brand-primary hover:bg-brand-secondary text-white text-base font-semibold transition-colors disabled:opacity-60 flex items-center justify-center gap-2"
                 >
                   {submitStatus === 'loading' ? (
                     <>
@@ -530,7 +530,7 @@ export default function HelpPage() {
           </h2>
           <div className="max-w-md mx-auto">
             <Card className="p-8 bg-white border-gray-200 hover:shadow-lg transition-shadow text-center">
-              <div className="inline-flex items-center justify-center w-14 h-14 rounded-2xl bg-[#635BFF]/10 text-[#635BFF] mb-5">
+              <div className="inline-flex items-center justify-center w-14 h-14 rounded-2xl bg-brand-primary/10 text-brand-primary mb-5">
                 <Mail className="h-7 w-7" />
               </div>
               <h3 className="text-xl font-semibold text-gray-900 mb-2">Email Support</h3>
@@ -539,7 +539,7 @@ export default function HelpPage() {
               </p>
               <a
                 href="mailto:support@trackrai.io"
-                className="inline-flex items-center justify-center gap-2 w-full py-3 rounded-xl bg-[#635BFF] hover:bg-[#5851EA] text-white text-sm font-semibold transition-colors shadow-sm"
+                className="inline-flex items-center justify-center gap-2 w-full py-3 rounded-xl bg-brand-primary hover:bg-brand-secondary text-white text-sm font-semibold transition-colors shadow-sm"
               >
                 <Mail className="h-4 w-4" />
                 support@trackrai.io

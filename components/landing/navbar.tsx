@@ -1,6 +1,7 @@
 'use client'
 
 import Link from 'next/link'
+import Image from 'next/image'
 import { Button } from '@/components/ui/button'
 import { Menu, X } from 'lucide-react'
 import { useState } from 'react'
@@ -28,10 +29,15 @@ export function LandingNavbar() {
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="flex h-16 items-center justify-between">
           {/* Logo */}
-          <Link href="/" className="flex items-center space-x-2">
-            <span className="text-xl font-semibold bg-clip-text text-transparent bg-gradient-to-r from-[#635BFF] to-[#0A2540]">
-              TrackrAI
-            </span>
+          <Link href="/" className="flex items-center">
+            <Image
+              src="/logo-light-theme.svg"
+              alt="TrackrAI"
+              width={140}
+              height={36}
+              className="h-9 w-auto"
+              priority
+            />
           </Link>
 
           {/* Desktop Navigation */}
@@ -42,8 +48,8 @@ export function LandingNavbar() {
                 href={href}
                 className={`text-sm px-3 py-2 rounded-md transition-colors ${
                   isActive(matchPath)
-                    ? 'text-[#635BFF] font-medium bg-[#635BFF]/5'
-                    : 'text-gray-600 hover:text-gray-900 hover:bg-gray-50'
+                    ? 'text-brand-primary font-medium bg-brand-primary/5'
+                    : 'text-brand-body hover:text-brand-heading hover:bg-gray-50'
                 }`}
               >
                 {label}
@@ -54,12 +60,12 @@ export function LandingNavbar() {
           {/* Desktop CTA */}
           <div className="hidden lg:flex lg:items-center lg:space-x-3">
             <a href={SIGN_IN_URL} onClick={() => trackSigninClick('navbar')}>
-              <Button variant="ghost" className="text-[15px] text-gray-600 hover:text-gray-900 hover:bg-gray-50">
+              <Button variant="ghost" className="text-[15px] text-brand-body hover:text-brand-heading hover:bg-gray-50">
                 Sign in
               </Button>
             </a>
             <a href={SIGN_UP_URL} onClick={() => trackSignupClick('navbar')}>
-              <Button className="bg-gray-900 hover:bg-gray-800 text-white text-[15px] shadow-sm">
+              <Button className="bg-brand-heading hover:opacity-90 text-white text-[15px] shadow-sm">
                 Get started
               </Button>
             </a>
@@ -96,8 +102,8 @@ export function LandingNavbar() {
                   onClick={() => setMobileMenuOpen(false)}
                   className={`px-3 py-2.5 text-sm rounded-md transition-colors ${
                     isActive(matchPath)
-                      ? 'text-[#635BFF] font-medium bg-[#635BFF]/5'
-                      : 'text-gray-600 hover:text-gray-900 hover:bg-gray-50'
+                      ? 'text-brand-primary font-medium bg-brand-primary/5'
+                      : 'text-brand-body hover:text-brand-heading hover:bg-gray-50'
                   }`}
                 >
                   {label}
@@ -106,12 +112,12 @@ export function LandingNavbar() {
             </div>
             <div className="flex flex-col space-y-2 pt-2 border-t border-gray-100">
               <a href={SIGN_IN_URL} onClick={() => { setMobileMenuOpen(false); trackSigninClick('navbar_mobile') }}>
-                <Button variant="outline" className="w-full text-[15px]">
+                <Button variant="outline" className="w-full text-[15px] border-brand-border text-brand-body hover:text-brand-heading">
                   Sign in
                 </Button>
               </a>
               <a href={SIGN_UP_URL} onClick={() => { setMobileMenuOpen(false); trackSignupClick('navbar_mobile') }}>
-                <Button className="w-full bg-gray-900 hover:bg-gray-800 text-white text-[15px]">
+                <Button className="w-full bg-brand-heading hover:opacity-90 text-white text-[15px]">
                   Get started
                 </Button>
               </a>

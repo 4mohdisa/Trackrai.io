@@ -55,7 +55,7 @@ export function AnalyticsChart() {
               <span className="w-3 h-1.5 rounded-full bg-green-400 inline-block" /> Income
             </span>
             <span className="flex items-center gap-1.5">
-              <span className="w-3 h-1.5 rounded-full bg-[#635BFF] inline-block" /> Expenses
+              <span className="w-3 h-1.5 rounded-full bg-brand-primary inline-block" /> Expenses
             </span>
           </div>
         </div>
@@ -94,7 +94,7 @@ export function AnalyticsChart() {
                   <div
                     className={`w-full rounded-t transition-all duration-300 ${highlightIndex === i ? 'opacity-100' : 'opacity-75'}`}
                     style={{
-                      backgroundColor: '#635BFF',
+                      backgroundColor: '#295EFF',
                       height: `${expense * 0.85}%`,
                       transform: inView ? 'scaleY(1)' : 'scaleY(0)',
                       transformOrigin: 'bottom',

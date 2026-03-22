@@ -47,8 +47,8 @@ type ColKey = (typeof COLUMNS)[number]['key']
 function Cell({ value, highlight }: { value: boolean; highlight: boolean }) {
   if (value) {
     return highlight ? (
-      <td className="px-4 py-4 text-center bg-[#635BFF]/5">
-        <span className="inline-flex items-center justify-center w-7 h-7 rounded-full bg-[#635BFF] shadow-sm">
+      <td className="px-4 py-4 text-center bg-brand-primary/5">
+        <span className="inline-flex items-center justify-center w-7 h-7 rounded-full bg-brand-primary shadow-sm">
           <Check className="h-4 w-4 text-white" strokeWidth={3} />
         </span>
       </td>
@@ -59,7 +59,7 @@ function Cell({ value, highlight }: { value: boolean; highlight: boolean }) {
     )
   }
   return highlight ? (
-    <td className="px-4 py-4 text-center bg-[#635BFF]/5">
+    <td className="px-4 py-4 text-center bg-brand-primary/5">
       <Minus className="h-5 w-5 text-gray-300 mx-auto" />
     </td>
   ) : (
@@ -75,7 +75,7 @@ export function ComparisonTable() {
       <div className="mx-auto max-w-7xl px-6">
         {/* Header */}
         <div className="text-center mb-12">
-          <div className="inline-flex items-center rounded-full bg-[#635BFF]/10 px-4 py-1.5 text-sm font-medium text-[#635BFF] mb-5">
+          <div className="section-label mb-5">
             Comparison
           </div>
           <h2 className="text-4xl md:text-5xl font-extrabold tracking-tight text-gray-900 mb-5">
@@ -97,7 +97,7 @@ export function ComparisonTable() {
                     key={key}
                     className={`px-4 py-4 text-center font-bold text-sm ${
                       highlight
-                        ? 'bg-[#635BFF] text-white rounded-t-lg'
+                        ? 'bg-brand-primary text-white rounded-t-lg'
                         : 'text-gray-600'
                     }`}
                   >
@@ -112,7 +112,7 @@ export function ComparisonTable() {
                   key={row.feature}
                   className={`border-b border-gray-50 last:border-0 ${
                     i % 2 === 0 ? 'bg-white' : 'bg-gray-50/50'
-                  } hover:bg-[#635BFF]/3 transition-colors`}
+                  } hover:bg-brand-primary/5 transition-colors`}
                 >
                   <td className="px-6 py-4 font-medium text-gray-900">{row.feature}</td>
                   {COLUMNS.map(({ key, highlight }) => (

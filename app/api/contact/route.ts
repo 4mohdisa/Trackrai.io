@@ -107,7 +107,7 @@ function supportEmailHtml(d: SupportPayload): string {
 <head><meta charset="UTF-8" /></head>
 <body style="margin:0;padding:0;background:#f3f4f6;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;">
   <div style="max-width:600px;margin:32px auto;">
-    <div style="background:linear-gradient(135deg,#635BFF,#4f46e5);padding:28px 32px;border-radius:12px 12px 0 0;">
+    <div style="background:linear-gradient(135deg,#295EFF,#658BFF);padding:28px 32px;border-radius:12px 12px 0 0;">
       <p style="margin:0 0 4px 0;color:rgba(255,255,255,0.7);font-size:13px;letter-spacing:0.05em;text-transform:uppercase;">TrackrAI Support</p>
       <h1 style="margin:0;color:#ffffff;font-size:22px;font-weight:700;">New Support Request</h1>
     </div>
@@ -120,7 +120,7 @@ function supportEmailHtml(d: SupportPayload): string {
         <tr>
           <td style="padding:8px 0;color:#6b7280;font-size:13px;font-weight:600;vertical-align:top;">SUPPORT TYPE</td>
           <td style="padding:8px 0;">
-            <span style="background:#ede9fe;color:#635BFF;padding:3px 10px;border-radius:100px;font-size:12px;font-weight:600;">${supportLabel}</span>
+            <span style="background:#dbeafe;color:#295EFF;padding:3px 10px;border-radius:100px;font-size:12px;font-weight:600;">${supportLabel}</span>
           </td>
         </tr>
         <tr>
